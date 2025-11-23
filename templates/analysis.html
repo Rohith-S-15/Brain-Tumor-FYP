@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Analysis — {{ name }} | NeuroForecast AI</title>
+    <meta name="description" content="AI volumetric analysis report for {{ name }} ({{ pid }}) — Vestibular Schwannoma monitoring.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 260px; min-height: 100vh; background: #fff;
+            border-right: 1px solid #e2e8f0; display: flex; flex-direction: column;
+            position: fixed; top: 0; left: 0; z-index: 100;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+        }
+        .sidebar-brand {
+            padding: 24px 24px 20px; border-bottom: 1px solid #f1f5f9;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .sidebar-brand-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; flex-shrink: 0;
+        }
+        .sidebar-brand-name { font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: -0.3px; }
+        .sidebar-brand-sub  { font-size: 10px; color: #94a3b8; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; }
+        .sidebar-section { padding: 20px 16px 8px; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #94a3b8; }
+        .sidebar-nav { padding: 0 12px; flex: 1; }
+        .nav-link {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 14px; border-radius: 8px;
+            text-decoration: none; font-size: 14px; font-weight: 500;
+            color: #64748b; transition: all 0.15s ease; margin-bottom: 2px;
+        }
+        .nav-link:hover { background: #f8fafc; color: #0f172a; }
+        .nav-link.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+        .nav-link.danger:hover { background: #fff1f2; color: #e11d48; }
+        .nav-icon { font-size: 18px; width: 20px; text-align: center; }
+        .sidebar-footer { padding: 16px; border-top: 1px solid #f1f5f9; margin-top: auto; }
+        .user-pill {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 12px; background: #f8fafc;
+            border-radius: 10px; border: 1px solid #e2e8f0;
+        }
+        .user-avatar {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: #fff; font-weight: 700; flex-shrink: 0;
+        }
+        .user-name { font-size: 13px; font-weight: 600; color: #0f172a; }
+        .user-role { font-size: 11px; color: #64748b; text-transform: capitalize; }
+
+        /* ── Main ── */
+        .main { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+        .topbar {
+            background: #fff; border-bottom: 1px solid #e2e8f0;
+            padding: 0 32px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 50;
+        }
+        .breadcrumb {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: #94a3b8;
+        }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { color: #cbd5e1; }
+        .breadcrumb .current { color: #0f172a; font-weight: 700; }
+        .topbar-right { display: flex; align-items: center; gap: 10px; }
+
+        .content { padding: 28px 32px; }
+
+        /* Patient Header */
+        .patient-header {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 20px 24px; margin-bottom: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            animation: fadeUp 0.35s ease forwards; opacity: 0;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .ph-left { display: flex; align-items: center; gap: 16px; }
+        .ph-avatar {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, #2563eb, #6366f1);
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 800; color: #fff;
+        }
+        .ph-name { font-size: 20px; font-weight: 800; color: #0f172a; }
+        .ph-meta { font-size: 13px; color: #64748b; margin-top: 3px; }
+        .ph-meta .pid { font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; }
+        .ph-actions { display: flex; gap: 10px; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 9px 16px; border-radius: 9px;
+            font-size: 13px; font-weight: 700;
+            text-decoration: none; transition: all 0.15s;
+            border: 1px solid transparent;
+        }
+        .btn-outline { background: #fff; color: #374151; border-color: #e2e8f0; }
+        .btn-outline:hover { background: #f8fafc; border-color: #cbd5e1; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff; }
+        .btn-primary:hover { background: linear-gradient(135deg, #1d4ed8, #2563eb); box-shadow: 0 2px 10px rgba(37,99,235,0.3); }
+        .btn-dark { background: #0f172a; color: #fff; }
+        .btn-dark:hover { background: #1e293b; }
+
+        /* MRI Images Row */
+        .mri-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .mri-panel {
+            border-radius: 14px; overflow: hidden;
+            background: #0f172a;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            animation: fadeUp 0.4s ease forwards; opacity: 0;
+            aspect-ratio: 1;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .mri-panel:nth-child(1) { animation-delay: 0.05s; }
+        .mri-panel:nth-child(2) { animation-delay: 0.1s; border: 2px solid #3b82f6; box-shadow: 0 0 0 1px #bfdbfe; }
+        .mri-panel:nth-child(3) { animation-delay: 0.15s; border: 2px solid #e11d48; box-shadow: 0 0 0 1px #fecdd3; }
+        .mri-panel:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+        .mri-panel img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .mri-label {
+            position: absolute; top: 10px; left: 10px;
+            padding: 5px 10px; border-radius: 6px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .mri-label.history { background: rgba(0,0,0,0.7); color: #e2e8f0; }
+        .mri-label.current { background: #2563eb; color: #fff; }
+        .mri-label.forecast { background: #e11d48; color: #fff; }
+        .mri-click-hint {
+            position: absolute; bottom: 10px; right: 10px;
+            background: rgba(0,0,0,0.6); color: #e2e8f0;
+            font-size: 10px; font-weight: 600;
+            padding: 4px 8px; border-radius: 5px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Bottom Grid */
+        .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .card {
+            background: #fff; border: 1px solid #e2e8f0;
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            animation: fadeUp 0.4s ease forwards; opacity: 0;
+        }
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.25s; }
+        .card:nth-child(3) { animation-delay: 0.3s; grid-column: 1 / -1; }
+
+        .card-header {
+            padding: 16px 20px; border-bottom: 1px solid #f1f5f9;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .card-title { font-size: 14px; font-weight: 700; color: #0f172a; }
+        .card-body { padding: 20px; }
+
+        /* Volumes */
+        .vol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+        .vol-item {
+            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px;
+        }
+        .vol-label { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .vol-value { font-size: 22px; font-weight: 800; line-height: 1; }
+        .vol-unit  { font-size: 12px; font-weight: 500; color: #64748b; }
+        .vol-growth { font-size: 11px; font-weight: 700; margin-top: 4px; }
+        .vol-value.blue-txt { color: #0284c7; }
+        .vol-value.red-txt  { color: #e11d48; }
+        .vol-value.green-txt{ color: #16a34a; }
+
+        /* Severity Ring */
+        .severity-section { display: flex; align-items: center; gap: 20px; }
+        .severity-ring-wrap { position: relative; width: 110px; height: 110px; flex-shrink: 0; }
+        .severity-ring-wrap svg { transform: rotate(-90deg); }
+        .ring-bg { fill: none; stroke: #e2e8f0; stroke-width: 10; }
+        .ring-fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.2s ease; }
+        .ring-fill.high-risk { stroke: #e11d48; }
+        .ring-fill.stable    { stroke: #3b82f6; }
+        .ring-fill.regression{ stroke: #22c55e; }
+        .ring-label {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .ring-pct { font-size: 18px; font-weight: 800; color: #0f172a; line-height: 1; }
+        .ring-sub { font-size: 9px; font-weight: 600; color: #94a3b8; text-transform: uppercase; margin-top: 2px; }
+        .severity-info { flex: 1; }
+        .severity-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+        .severity-name.high-risk { color: #e11d48; }
+        .severity-name.stable    { color: #2563eb; }
+        .severity-name.regression{ color: #16a34a; }
+        .severity-desc { font-size: 13px; color: #64748b; line-height: 1.5; }
+
+        /* Metrics grid */
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .metric-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px; }
+        .metric-box-label { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .metric-box-value { font-size: 15px; font-weight: 700; color: #0f172a; }
+
+        /* Confidence bar */
+        .conf-bar-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .conf-bar-track { background: #e2e8f0; border-radius: 99px; height: 8px; }
+        .conf-bar-fill { height: 8px; border-radius: 99px; background: linear-gradient(90deg, #22c55e, #16a34a); transition: width 1.2s ease; }
+
+        /* Alert Banner */
+        .alert-banner {
+            padding: 16px 20px; border-radius: 12px; border: 1px solid;
+            display: flex; align-items: flex-start; gap: 12px;
+        }
+        .alert-banner.error   { background: #fff1f2; border-color: #fecdd3; }
+        .alert-banner.success { background: #f0fdf4; border-color: #bbf7d0; }
+        .alert-banner.info    { background: #eff6ff; border-color: #bfdbfe; }
+        .alert-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+        .alert-title {
+            font-size: 14px; font-weight: 800; margin-bottom: 4px;
+        }
+        .alert-banner.error   .alert-title { color: #be123c; }
+        .alert-banner.success .alert-title { color: #15803d; }
+        .alert-banner.info    .alert-title { color: #1d4ed8; }
+        .alert-desc { font-size: 13px; color: #475569; line-height: 1.6; }
+
+        /* Graph card full width */
+        .graph-card .card-body { padding: 16px; }
+        .graph-card img { width: 100%; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">🧠</div>
+        <div>
+            <div class="sidebar-brand-name">NeuroForecast AI</div>
+            <div class="sidebar-brand-sub">Clinical Suite</div>
+        </div>
+    </div>
+    <div class="sidebar-section">Navigation</div>
+    <nav class="sidebar-nav">
+        <a href="/database" class="nav-link">
+            <span class="nav-icon">🗂️</span> Patient Database
+        </a>
+        <a href="/patient/{{ pid }}" class="nav-link">
+            <span class="nav-icon">👤</span> Patient Profile
+        </a>
+        {% if role == 'radiologist' %}
+        <a href="/add_patient" class="nav-link">
+            <span class="nav-icon">➕</span> Add Patient Scan
+        </a>
+        {% endif %}
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-pill">
+            <div class="user-avatar">{{ role[0]|upper }}</div>
+            <div>
+                <div class="user-name">{{ role|capitalize }}</div>
+                <div class="user-role">Clinical Access</div>
+            </div>
+        </div>
+        <a href="/logout" class="nav-link danger" style="margin-top:8px;">
+            <span class="nav-icon">🔓</span> Logout
+        </a>
+    </div>
+</aside>
+
+<!-- Main -->
+<div class="main">
+    <header class="topbar">
+        <div class="breadcrumb">
+            <a href="/database">Database</a>
+            <span class="sep">/</span>
+            <a href="/patient/{{ pid }}">{{ name }}</a>
+            <span class="sep">/</span>
+            <span class="current">AI Analysis</span>
+        </div>
+        <div class="topbar-right">
+            <a href="/download_pdf" class="btn btn-dark">🖨 Export PDF Report</a>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- Patient Header -->
+        <div class="patient-header">
+            <div class="ph-left">
+                <div class="ph-avatar">{{ name[0] }}</div>
+                <div>
+                    <div class="ph-name">{{ name }}</div>
+                    <div class="ph-meta">
+                        <span class="pid">{{ pid }}</span>
+                        &nbsp;·&nbsp;
+                        {% if age != 'nan' %}{{ age }} yrs{% else %}Age N/A{% endif %}
+                        &nbsp;·&nbsp;
+                        {% if sex != 'nan' %}{{ sex }}{% else %}Sex N/A{% endif %}
+                        &nbsp;·&nbsp;
+                        {{ symptoms }}
+                    </div>
+                </div>
+            </div>
+            <div class="ph-actions">
+                <a href="/mri_viewer/{{ filename }}" class="btn btn-outline">🔬 Full MRI Viewer</a>
+            </div>
+        </div>
+
+        <!-- MRI Images -->
+        <div class="mri-row">
+            <a href="/mri_viewer/{{ filename }}" class="mri-panel" title="Click to open full MRI viewer">
+                <img src="/{{ imgs.img_a }}" alt="Historical Scan">
+                <div class="mri-label history">1. Historical ({{ date_a }})</div>
+                <div class="mri-click-hint">Click to expand</div>
+            </a>
+            <a href="/mri_viewer/{{ filename }}" class="mri-panel" title="Click to open full MRI viewer">
+                <img src="/{{ imgs.img_b }}" alt="Current Scan">
+                <div class="mri-label current">2. Current ({{ date_b }})</div>
+                <div class="mri-click-hint">Click to expand</div>
+            </a>
+            <a href="/mri_viewer/{{ filename }}" class="mri-panel" title="Click to open full MRI viewer">
+                <img src="/{{ imgs.img_pred }}" alt="AI Forecast">
+                <div class="mri-label forecast">3. AI Forecast ({{ date_c }})</div>
+                <div class="mri-click-hint">Click to expand</div>
+            </a>
+        </div>
+
+        <!-- Analysis Cards -->
+        <div class="analysis-grid">
+
+            <!-- Volumes + Alert -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">📐 Volumetric Measurements</span>
+                </div>
+                <div class="card-body">
+                    <div class="vol-grid">
+                        <div class="vol-item">
+                            <div class="vol-label">Vol A — Historical</div>
+                            <div class="vol-value">{{ vol_a }}<span class="vol-unit"> cm³</span></div>
+                            <div class="vol-growth" style="color:#64748b;">Baseline</div>
+                        </div>
+                        <div class="vol-item">
+                            <div class="vol-label">Vol B — Current</div>
+                            <div class="vol-value blue-txt">{{ vol_b }}<span class="vol-unit"> cm³</span></div>
+                            <div class="vol-growth" style="color: {% if growth_ab > 0 %}#e11d48{% else %}#16a34a{% endif %};">
+                                {{ '%+.1f'|format(growth_ab) }}% vs baseline
+                            </div>
+                        </div>
+                        <div class="vol-item">
+                            <div class="vol-label">Vol C — AI Forecast</div>
+                            <div class="vol-value {% if alert_type == 'error' %}red-txt{% elif alert_type == 'success' %}green-txt{% else %}blue-txt{% endif %}">
+                                {{ vol_c }}<span class="vol-unit"> cm³</span>
+                            </div>
+                            <div class="vol-growth" style="color: {% if growth_bc > 10 %}#e11d48{% elif growth_bc < -10 %}#16a34a{% else %}#2563eb{% endif %};">
+                                {{ '%+.1f'|format(growth_bc) }}% projected
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-banner {{ alert_type }}" style="margin-top: 4px;">
+                        <div class="alert-icon">
+                            {% if alert_type == 'error' %}⚠️
+                            {% elif alert_type == 'success' %}✅
+                            {% else %}ℹ️{% endif %}
+                        </div>
+                        <div>
+                            <div class="alert-title">{{ alert_title }}</div>
+                            <div class="alert-desc">{{ alert_desc }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Severity + Metrics -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">🎯 AI Severity Assessment</span>
+                </div>
+                <div class="card-body">
+                    <div class="severity-section" style="margin-bottom:20px;">
+                        <div class="severity-ring-wrap">
+                            {% set abs_g = growth_bc | abs %}
+                            {% set capped = [abs_g, 100] | min %}
+                            {% set circ = 251.2 %}
+                            {% set offset = circ - (capped / 100 * circ) %}
+                            <svg width="110" height="110" viewBox="0 0 110 110">
+                                <circle class="ring-bg" cx="55" cy="55" r="40"/>
+                                <circle class="ring-fill {{ alert_type if alert_type != 'error' else 'high-risk' }}"
+                                    cx="55" cy="55" r="40"
+                                    stroke-dasharray="{{ circ }}"
+                                    stroke-dashoffset="{{ circ }}"
+                                    id="severity-ring"/>
+                            </svg>
+                            <div class="ring-label">
+                                <div class="ring-pct">{{ '%+.0f'|format(growth_bc) }}%</div>
+                                <div class="ring-sub">Growth</div>
+                            </div>
+                        </div>
+                        <div class="severity-info">
+                            <div class="severity-name {{ alert_type if alert_type != 'error' else 'high-risk' }}">
+                                {% if alert_type == 'error' %}Progressive Growth
+                                {% elif alert_type == 'success' %}Tumor Regression
+                                {% else %}Stable{% endif %}
+                            </div>
+                            <div class="severity-desc">{{ alert_desc }}</div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-box-label">Tumor Doubling Time</div>
+                            <div class="metric-box-value">{{ doubling_time }}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-box-label">Sphericity Index</div>
+                            <div class="metric-box-value">{{ sphericity }}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-box-label">Necrosis Factor</div>
+                            <div class="metric-box-value">{{ necrosis }}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-box-label">AI Ensemble Confidence</div>
+                            <div>
+                                <div class="conf-bar-row" style="margin-bottom:5px;">
+                                    <span style="font-size:13px; font-weight:700; color:#0f172a;">{{ confidence }}%</span>
+                                </div>
+                                <div class="conf-bar-track">
+                                    <div class="conf-bar-fill" style="width:0%" id="conf-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trajectory Graph — full width -->
+            <div class="card graph-card">
+                <div class="card-header">
+                    <span class="card-title">📈 Volumetric Trajectory (Biological Forecast)</span>
+                </div>
+                <div class="card-body">
+                    <img src="/{{ imgs.graph }}" alt="Trajectory Graph">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // Animate severity ring
+    setTimeout(() => {
+        const ring = document.getElementById('severity-ring');
+        if (ring) {
+            const circ = 251.2;
+            const growthAbs = Math.min(Math.abs({{ growth_bc }}), 100);
+            const offset = circ - (growthAbs / 100 * circ);
+            ring.style.strokeDashoffset = offset;
+        }
+        // Confidence bar
+        const bar = document.getElementById('conf-bar');
+        if (bar) bar.style.width = '{{ confidence }}%';
+    }, 100);
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# GitHub Linguist overrides to focus statistics on Python codebase
+*.html linguist-vendored
+*.html linguist-generated
+*.htm linguist-vendored
+templates/** linguist-vendored
+templates/** linguist-generated
+templates/* linguist-vendored
+templates/* linguist-generated

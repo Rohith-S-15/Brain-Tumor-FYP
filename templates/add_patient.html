@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Patient Scan — NeuroForecast AI</title>
+    <meta name="description" content="Upload a new patient MRI scan (NPZ format) to the NeuroForecast AI system.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px; min-height: 100vh; background: #fff;
+            border-right: 1px solid #e2e8f0; display: flex; flex-direction: column;
+            position: fixed; top: 0; left: 0; z-index: 100;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+        }
+        .sidebar-brand {
+            padding: 24px 24px 20px; border-bottom: 1px solid #f1f5f9;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .sidebar-brand-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; flex-shrink: 0;
+        }
+        .sidebar-brand-name { font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: -0.3px; }
+        .sidebar-brand-sub  { font-size: 10px; color: #94a3b8; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; }
+        .sidebar-section { padding: 20px 16px 8px; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #94a3b8; }
+        .sidebar-nav { padding: 0 12px; flex: 1; }
+        .nav-link {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 14px; border-radius: 8px; text-decoration: none;
+            font-size: 14px; font-weight: 500; color: #64748b;
+            transition: all 0.15s ease; margin-bottom: 2px;
+        }
+        .nav-link:hover { background: #f8fafc; color: #0f172a; }
+        .nav-link.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+        .nav-link.danger:hover { background: #fff1f2; color: #e11d48; }
+        .nav-icon { font-size: 18px; width: 20px; text-align: center; }
+        .sidebar-footer { padding: 16px; border-top: 1px solid #f1f5f9; margin-top: auto; }
+        .user-pill {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 12px; background: #f8fafc;
+            border-radius: 10px; border: 1px solid #e2e8f0;
+        }
+        .user-avatar {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: #fff; font-weight: 700; flex-shrink: 0;
+        }
+        .user-name { font-size: 13px; font-weight: 600; color: #0f172a; }
+        .user-role { font-size: 11px; color: #64748b; text-transform: capitalize; }
+
+        /* Main */
+        .main { margin-left: 260px; flex: 1; display: flex; flex-direction: column; }
+        .topbar {
+            background: #fff; border-bottom: 1px solid #e2e8f0;
+            padding: 0 32px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 50;
+        }
+        .breadcrumb {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: #94a3b8;
+        }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .current { color: #0f172a; font-weight: 700; }
+        .sep { color: #cbd5e1; }
+
+        .content { padding: 40px; max-width: 720px; }
+
+        .page-title { font-size: 24px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+        .page-subtitle { font-size: 14px; color: #64748b; margin-bottom: 36px; }
+
+        /* Info banner */
+        .info-banner {
+            background: #eff6ff; border: 1px solid #bfdbfe;
+            border-radius: 10px; padding: 14px 18px;
+            display: flex; align-items: flex-start; gap: 12px;
+            margin-bottom: 28px;
+        }
+        .info-banner-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+        .info-banner-text { font-size: 13px; color: #1d4ed8; line-height: 1.6; }
+        .info-banner-text strong { font-weight: 700; }
+
+        /* Drop Zone */
+        .drop-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            margin-bottom: 24px;
+        }
+        .drop-zone:hover, .drop-zone.drag-over {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .drop-zone.file-selected {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+        .drop-zone input[type="file"] {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            opacity: 0; cursor: pointer;
+        }
+        .drop-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+        .drop-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+        .drop-sub   { font-size: 14px; color: #64748b; margin-bottom: 16px; }
+        .drop-format {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: #f1f5f9; border: 1px solid #e2e8f0;
+            padding: 6px 14px; border-radius: 20px;
+            font-size: 12px; font-weight: 700; color: #374151; font-family: monospace;
+        }
+
+        .file-selected-info {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+        }
+        .file-selected-info.visible { display: flex; }
+        .file-check { font-size: 22px; }
+        .file-name { font-size: 14px; font-weight: 700; color: #15803d; font-family: monospace; }
+        .file-sub  { font-size: 12px; color: #16a34a; }
+
+        /* Submit */
+        .btn-submit {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px; font-weight: 700;
+            border: none; border-radius: 10px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .btn-submit:hover:not(:disabled) {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+            transform: translateY(-1px);
+        }
+        .btn-submit:disabled {
+            background: #e2e8f0; color: #94a3b8; cursor: not-allowed;
+            transform: none; box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">🧠</div>
+        <div>
+            <div class="sidebar-brand-name">NeuroForecast AI</div>
+            <div class="sidebar-brand-sub">Clinical Suite</div>
+        </div>
+    </div>
+    <div class="sidebar-section">Navigation</div>
+    <nav class="sidebar-nav">
+        <a href="/database" class="nav-link">
+            <span class="nav-icon">🗂️</span> Patient Database
+        </a>
+        <a href="/add_patient" class="nav-link active">
+            <span class="nav-icon">➕</span> Add Patient Scan
+        </a>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-pill">
+            <div class="user-avatar">R</div>
+            <div>
+                <div class="user-name">Radiologist</div>
+                <div class="user-role">Imaging Access</div>
+            </div>
+        </div>
+        <a href="/logout" class="nav-link danger" style="margin-top:8px;">
+            <span class="nav-icon">🔓</span> Logout
+        </a>
+    </div>
+</aside>
+
+<!-- Main -->
+<div class="main">
+    <header class="topbar">
+        <div class="breadcrumb">
+            <a href="/database">Patient Database</a>
+            <span class="sep">/</span>
+            <span class="current">Add Patient Scan</span>
+        </div>
+    </header>
+
+    <div class="content">
+        <h1 class="page-title">Add New Patient Scan</h1>
+        <p class="page-subtitle">Upload a preprocessed MRI triplet file in NPZ format. Radiologist access required.</p>
+
+        <div class="info-banner">
+            <span class="info-banner-icon">ℹ️</span>
+            <div class="info-banner-text">
+                <strong>File format requirements:</strong> Upload a <code>.npz</code> file containing the keys:
+                <code>img_a</code>, <code>img_b</code>, <code>diff_ab</code>, <code>mask_a</code>, <code>mask_b</code>, <code>img_c</code>, and <code>spacing</code>.
+                The filename must follow the pattern: <code>STUDY_ID_DATE-A_DATE-B_DATE-C.npz</code>
+            </div>
+        </div>
+
+        <form action="/add_patient" method="POST" enctype="multipart/form-data" id="upload-form">
+            <div class="drop-zone" id="drop-zone">
+                <input type="file" name="file" id="file-input" accept=".npz" required>
+                <span class="drop-icon">📂</span>
+                <div class="drop-title">Drag &amp; drop your .npz file here</div>
+                <div class="drop-sub">or click to browse from your workstation</div>
+                <span class="drop-format">📁 .npz files only</span>
+            </div>
+
+            <div class="file-selected-info" id="file-info">
+                <span class="file-check">✅</span>
+                <div>
+                    <div class="file-name" id="file-name-text">—</div>
+                    <div class="file-sub">Ready to upload</div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submit-btn" disabled>
+                ⬆️ &nbsp;Upload to Database
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const fileInput = document.getElementById('file-input');
+    const dropZone  = document.getElementById('drop-zone');
+    const fileInfo  = document.getElementById('file-info');
+    const fileNameText = document.getElementById('file-name-text');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function handleFile(file) {
+        if (!file) return;
+        fileNameText.textContent = file.name;
+        fileInfo.classList.add('visible');
+        dropZone.classList.add('file-selected');
+        submitBtn.disabled = false;
+    }
+
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files[0]) handleFile(e.target.files[0]);
+    });
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file) {
+            fileInput.files = e.dataTransfer.files;
+            handleFile(file);
+        }
+    });
+</script>
+</body>
+</html>

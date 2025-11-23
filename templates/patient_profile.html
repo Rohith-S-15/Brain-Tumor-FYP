@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} — Patient Profile | NeuroForecast AI</title>
+    <meta name="description" content="Clinical profile for {{ name }} ({{ pid }}) — Vestibular Schwannoma monitoring.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ── Sidebar (reused) ── */
+        .sidebar {
+            width: 260px;
+            min-height: 100vh;
+            background: #fff;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0; left: 0;
+            z-index: 100;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+        }
+        .sidebar-brand {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .sidebar-brand-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; flex-shrink: 0;
+        }
+        .sidebar-brand-name { font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: -0.3px; }
+        .sidebar-brand-sub { font-size: 10px; color: #94a3b8; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; }
+        .sidebar-section { padding: 20px 16px 8px; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #94a3b8; }
+        .sidebar-nav { padding: 0 12px; flex: 1; }
+        .nav-link {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 14px; border-radius: 8px;
+            text-decoration: none; font-size: 14px; font-weight: 500;
+            color: #64748b; transition: all 0.15s ease; margin-bottom: 2px;
+        }
+        .nav-link:hover { background: #f8fafc; color: #0f172a; }
+        .nav-link.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+        .nav-link.danger:hover { background: #fff1f2; color: #e11d48; }
+        .nav-icon { font-size: 18px; width: 20px; text-align: center; }
+        .sidebar-footer { padding: 16px; border-top: 1px solid #f1f5f9; margin-top: auto; }
+        .user-pill {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 12px; background: #f8fafc;
+            border-radius: 10px; border: 1px solid #e2e8f0;
+        }
+        .user-avatar {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: #fff; font-weight: 700; flex-shrink: 0;
+        }
+        .user-name { font-size: 13px; font-weight: 600; color: #0f172a; }
+        .user-role { font-size: 11px; color: #64748b; text-transform: capitalize; }
+
+        /* ── Main ── */
+        .main { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+        .topbar {
+            background: #fff; border-bottom: 1px solid #e2e8f0;
+            padding: 0 32px; height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 50;
+        }
+        .breadcrumb {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: #94a3b8;
+        }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { color: #cbd5e1; }
+        .breadcrumb .current { color: #0f172a; font-weight: 700; }
+
+        .content { padding: 32px; display: grid; grid-template-columns: 340px 1fr; gap: 24px; align-items: start; }
+
+        /* ── Left Column ── */
+        .left-col { display: flex; flex-direction: column; gap: 20px; }
+
+        .patient-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            animation: fadeUp 0.4s ease forwards;
+            opacity: 0;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .patient-card-header {
+            background: linear-gradient(135deg, #eff6ff, #e0e7ff);
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .patient-big-avatar {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, #2563eb, #6366f1);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; font-weight: 800; color: #fff;
+            flex-shrink: 0;
+        }
+        .patient-card-name { font-size: 20px; font-weight: 800; color: #0f172a; }
+        .patient-card-id { font-size: 12px; color: #64748b; font-family: monospace; margin-top: 3px; }
+
+        .info-grid { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .info-item label { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.6px; display: block; margin-bottom: 4px; }
+        .info-item value { font-size: 14px; font-weight: 600; color: #0f172a; display: block; }
+        .info-item.full { grid-column: 1 / -1; }
+
+        /* Status card */
+        .status-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            animation: fadeUp 0.4s ease 0.1s forwards;
+            opacity: 0;
+        }
+        .status-card-title { font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; }
+        .risk-banner {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 16px; border-radius: 10px; margin-bottom: 14px;
+        }
+        .risk-banner.high-risk { background: #fff1f2; border: 1px solid #fecdd3; }
+        .risk-banner.stable    { background: #eff6ff; border: 1px solid #bfdbfe; }
+        .risk-banner.regression{ background: #f0fdf4; border: 1px solid #bbf7d0; }
+        .risk-banner.pending   { background: #f8fafc; border: 1px solid #e2e8f0; }
+        .risk-icon { font-size: 24px; }
+        .risk-label { font-size: 15px; font-weight: 800; }
+        .risk-label.high-risk { color: #be123c; }
+        .risk-label.stable    { color: #1d4ed8; }
+        .risk-label.regression{ color: #15803d; }
+        .risk-label.pending   { color: #64748b; }
+        .risk-sub { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+        .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f8fafc; }
+        .metric-row:last-child { border-bottom: none; }
+        .metric-label { font-size: 13px; color: #64748b; font-weight: 500; }
+        .metric-value { font-size: 13px; font-weight: 700; color: #0f172a; }
+
+        /* ── Right Column ── */
+        .right-col { display: flex; flex-direction: column; gap: 20px; }
+
+        .section-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            animation: fadeUp 0.4s ease forwards;
+            opacity: 0;
+        }
+        .section-card:nth-child(1) { animation-delay: 0.05s; }
+        .section-card:nth-child(2) { animation-delay: 0.1s; }
+        .section-card:nth-child(3) { animation-delay: 0.15s; }
+
+        .section-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .section-title {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 15px; font-weight: 700; color: #0f172a;
+        }
+        .section-title .icon { font-size: 18px; }
+        .section-badge {
+            font-size: 11px; font-weight: 700; color: #3b82f6;
+            background: #eff6ff; padding: 3px 8px; border-radius: 6px;
+        }
+
+        /* Clinical History Timeline */
+        .history-timeline { padding: 20px 24px; }
+        .timeline-item {
+            display: flex;
+            gap: 16px;
+            position: relative;
+            padding-bottom: 24px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item:last-child .tl-line { display: none; }
+        .tl-left { display: flex; flex-direction: column; align-items: center; width: 32px; flex-shrink: 0; }
+        .tl-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #bfdbfe;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .tl-dot.green { background: #22c55e; box-shadow: 0 0 0 2px #bbf7d0; }
+        .tl-dot.red   { background: #e11d48; box-shadow: 0 0 0 2px #fecdd3; }
+        .tl-dot.gray  { background: #94a3b8; box-shadow: 0 0 0 2px #e2e8f0; }
+        .tl-dot.purple{ background: #8b5cf6; box-shadow: 0 0 0 2px #ddd6fe; }
+        .tl-line {
+            flex: 1;
+            width: 2px;
+            background: #f1f5f9;
+            margin: 4px 0;
+        }
+        .tl-content { flex: 1; }
+        .tl-date { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .tl-type { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+        .tl-note { font-size: 13px; color: #475569; line-height: 1.6; }
+
+        /* Scan Timeline Table */
+        .scan-timeline-table { width: 100%; border-collapse: collapse; }
+        .scan-timeline-table thead th {
+            padding: 12px 20px;
+            text-align: left;
+            font-size: 11px; font-weight: 700; color: #94a3b8;
+            text-transform: uppercase; letter-spacing: 0.8px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .scan-timeline-table tbody tr {
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.15s;
+            cursor: pointer;
+        }
+        .scan-timeline-table tbody tr:hover { background: #f8fafc; }
+        .scan-timeline-table tbody tr:last-child { border-bottom: none; }
+        .scan-timeline-table td { padding: 12px 20px; font-size: 13px; color: #374151; vertical-align: middle; }
+
+        .growth-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .growth-chip.up   { background: #fff1f2; color: #be123c; }
+        .growth-chip.down { background: #f0fdf4; color: #15803d; }
+        .growth-chip.flat { background: #f0f9ff; color: #0284c7; }
+
+        .badge-sm { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 5px; font-size: 11px; font-weight: 700; }
+        .badge-sm.high-risk { background: #fff1f2; color: #be123c; }
+        .badge-sm.stable    { background: #eff6ff; color: #1d4ed8; }
+        .badge-sm.regression{ background: #f0fdf4; color: #15803d; }
+        .badge-sm.pending   { background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; }
+
+        .scan-actions { display: flex; gap: 6px; }
+        .btn-sm {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 5px 10px; border-radius: 7px;
+            font-size: 11px; font-weight: 700;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        .btn-sm-outline { background: #fff; color: #374151; border: 1px solid #e2e8f0; }
+        .btn-sm-outline:hover { background: #f8fafc; border-color: #cbd5e1; }
+        .btn-sm-primary { background: #2563eb; color: #fff; border: 1px solid transparent; }
+        .btn-sm-primary:hover { background: #1d4ed8; }
+        .btn-sm-ghost { background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; }
+        .btn-sm-ghost:hover { background: #f1f5f9; }
+    </style>
+</head>
+<body>
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">🧠</div>
+        <div>
+            <div class="sidebar-brand-name">NeuroForecast AI</div>
+            <div class="sidebar-brand-sub">Clinical Suite</div>
+        </div>
+    </div>
+    <div class="sidebar-section">Navigation</div>
+    <nav class="sidebar-nav">
+        <a href="/database" class="nav-link active">
+            <span class="nav-icon">🗂️</span> Patient Database
+        </a>
+        {% if role == 'radiologist' %}
+        <a href="/add_patient" class="nav-link">
+            <span class="nav-icon">➕</span> Add Patient Scan
+        </a>
+        {% endif %}
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-pill">
+            <div class="user-avatar">{{ role[0]|upper }}</div>
+            <div>
+                <div class="user-name">{{ role|capitalize }}</div>
+                <div class="user-role">Clinical Access</div>
+            </div>
+        </div>
+        <a href="/logout" class="nav-link danger" style="margin-top:8px;">
+            <span class="nav-icon">🔓</span> Logout
+        </a>
+    </div>
+</aside>
+
+<!-- Main -->
+<div class="main">
+    <header class="topbar">
+        <div class="breadcrumb">
+            <a href="/database">Patient Database</a>
+            <span class="sep">/</span>
+            <span class="current">{{ name }}</span>
+        </div>
+    </header>
+
+    <div class="content">
+        <!-- Left Column -->
+        <div class="left-col">
+            <!-- Patient Info Card -->
+            <div class="patient-card">
+                <div class="patient-card-header">
+                    <div class="patient-big-avatar">{{ name[0] }}</div>
+                    <div>
+                        <div class="patient-card-name">{{ name }}</div>
+                        <div class="patient-card-id">{{ pid }}</div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Age</label>
+                        <value>{% if age != 'nan' and age != 'Unknown' %}{{ age }} years{% else %}Not recorded{% endif %}</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Biological Sex</label>
+                        <value>{% if sex != 'nan' and sex != 'Unknown' %}{{ sex }}{% else %}Not recorded{% endif %}</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Diagnosis</label>
+                        <value>Vestibular Schwannoma</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Laterality</label>
+                        <value>Unilateral (Right)</value>
+                    </div>
+                    <div class="info-item full">
+                        <label>Presenting Symptoms</label>
+                        <value>{{ symptoms if symptoms != 'Not Recorded' else 'Not Recorded' }}</value>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Status Card -->
+            <div class="status-card">
+                <div class="status-card-title">Current AI Status</div>
+                {% if risk_level == 'High Risk' %}
+                <div class="risk-banner high-risk">
+                    <span class="risk-icon">⚠️</span>
+                    <div>
+                        <div class="risk-label high-risk">High Risk — Progressive Growth</div>
+                        <div class="risk-sub">Volumetric expansion &gt;10% detected</div>
+                    </div>
+                </div>
+                {% elif risk_level == 'Regression' %}
+                <div class="risk-banner regression">
+                    <span class="risk-icon">✅</span>
+                    <div>
+                        <div class="risk-label regression">Tumor Regression</div>
+                        <div class="risk-sub">Significant volumetric decrease detected</div>
+                    </div>
+                </div>
+                {% elif risk_level == 'Stable' %}
+                <div class="risk-banner stable">
+                    <span class="risk-icon">📊</span>
+                    <div>
+                        <div class="risk-label stable">Stable Trajectory</div>
+                        <div class="risk-sub">Within ±10% clinical stability thresholds</div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="risk-banner pending">
+                    <span class="risk-icon">⏳</span>
+                    <div>
+                        <div class="risk-label pending">Pending Analysis</div>
+                        <div class="risk-sub">No AI report generated yet</div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if scans %}
+                {% set last = scans[-1] %}
+                <div class="metric-row">
+                    <span class="metric-label">Last scan date</span>
+                    <span class="metric-value">{{ last.get('date_b', '—') }}</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Projected growth</span>
+                    <span class="metric-value">{{ '%+.1f'|format(last.get('growth_bc', 0)) }}%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">AI Confidence</span>
+                    <span class="metric-value">{{ last.get('confidence', 0) }}%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Total scan sessions</span>
+                    <span class="metric-value">{{ scan_timeline|length }}</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-col">
+            <!-- Clinical History -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="icon">📋</span> Clinical History
+                    </div>
+                    <span class="section-badge">VS Record</span>
+                </div>
+                <div class="history-timeline">
+                    {% for event in clinical_history %}
+                    <div class="timeline-item">
+                        <div class="tl-left">
+                            {% if 'Initial' in event.type %}
+                                <div class="tl-dot purple"></div>
+                            {% elif 'Management' in event.type %}
+                                <div class="tl-dot gray"></div>
+                            {% elif 'Regression' in event.note or 'regression' in event.note %}
+                                <div class="tl-dot green"></div>
+                            {% elif 'progressive' in event.note %}
+                                <div class="tl-dot red"></div>
+                            {% else %}
+                                <div class="tl-dot"></div>
+                            {% endif %}
+                            <div class="tl-line"></div>
+                        </div>
+                        <div class="tl-content">
+                            <div class="tl-date">{{ event.date }}</div>
+                            <div class="tl-type">{{ event.type }}</div>
+                            <div class="tl-note">{{ event.note }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Scan Timeline -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="icon">🗓️</span> MRI Scan Timeline
+                    </div>
+                    <span class="section-badge">{{ scan_timeline|length }} session{% if scan_timeline|length != 1 %}s{% endif %}</span>
+                </div>
+                <table class="scan-timeline-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Scan Period</th>
+                            <th>Forecast Date</th>
+                            <th>Growth Rate</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in scan_timeline %}
+                        <tr>
+                            <td style="color:#94a3b8; font-weight:700;">{{ loop.index }}</td>
+                            <td>
+                                <div style="font-size:13px; font-weight:600; color:#0f172a;">{{ s.date_a }}</div>
+                                <div style="font-size:11px; color:#94a3b8;">→ {{ s.date_b }}</div>
+                            </td>
+                            <td style="font-size:13px; color:#64748b;">{{ s.date_c }}</td>
+                            <td>
+                                {% if s.growth_bc is not none %}
+                                    {% if s.growth_bc > 10 %}
+                                        <span class="growth-chip up">↑ {{ '%+.1f'|format(s.growth_bc) }}%</span>
+                                    {% elif s.growth_bc < -10 %}
+                                        <span class="growth-chip down">↓ {{ '%.1f'|format(s.growth_bc) }}%</span>
+                                    {% else %}
+                                        <span class="growth-chip flat">~ {{ '%+.1f'|format(s.growth_bc) }}%</span>
+                                    {% endif %}
+                                {% else %}
+                                    <span style="color:#94a3b8; font-size:12px;">Pending</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if s.status == 'Analyzed' %}
+                                    {% if s.risk_level == 'High Risk' %}
+                                        <span class="badge-sm high-risk">⚠ High Risk</span>
+                                    {% elif s.risk_level == 'Stable' %}
+                                        <span class="badge-sm stable">◉ Stable</span>
+                                    {% else %}
+                                        <span class="badge-sm regression">✓ Regression</span>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="badge-sm pending">⏳ Pending</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="scan-actions">
+                                    {% if s.status == 'Analyzed' %}
+                                        <a href="/mri_viewer/{{ s.filename }}" class="btn-sm btn-sm-outline">🔬 MRI</a>
+                                        <a href="/analysis/{{ s.filename }}" class="btn-sm btn-sm-primary">📊 Report</a>
+                                    {% else %}
+                                        <a href="/analysis/{{ s.filename }}" onclick="document.getElementById('loading-overlay').style.display='flex'" class="btn-sm btn-sm-primary">▶ Run AI</a>
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6" style="text-align:center; padding:32px; color:#94a3b8;">
+                                No scan sessions recorded yet.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading overlay -->
+<div id="loading-overlay" style="display:none; position:fixed; inset:0; background:rgba(255,255,255,0.92); z-index:999; flex-direction:column; align-items:center; justify-content:center; backdrop-filter:blur(4px);">
+    <div style="width:48px;height:48px;border:4px solid #e2e8f0;border-top-color:#3b82f6;border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:20px;"></div>
+    <div style="font-size:18px;font-weight:700;color:#0f172a;margin-bottom:6px;">TempVSNet Engine Active</div>
+    <div style="font-size:13px;color:#64748b;font-family:monospace;">Running 4D Spatio-Temporal Volumetric Forecast…</div>
+    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+</div>
+</body>
+</html>

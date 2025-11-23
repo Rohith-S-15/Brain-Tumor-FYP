@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI Viewer — {{ name }} | NeuroForecast AI</title>
+    <meta name="description" content="Full MRI viewer for {{ name }} ({{ pid }}).">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top bar */
+        .viewer-topbar {
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        .viewer-topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: #334155;
+            color: #e2e8f0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.15s;
+        }
+        .back-btn:hover { background: #475569; }
+        .viewer-patient-info { display: flex; flex-direction: column; }
+        .viewer-patient-name { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+        .viewer-patient-meta { font-size: 12px; color: #64748b; font-family: monospace; }
+
+        .viewer-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .viewer-badge {
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .viewer-badge.pacs { background: #1d4ed8; color: #fff; }
+        .viewer-badge.ai   { background: #7c3aed; color: #fff; }
+
+        /* Main viewer area */
+        .viewer-main {
+            flex: 1;
+            padding: 24px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .scan-date-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .scan-date-bar .arrow { color: #475569; }
+        .scan-date-bar strong { color: #e2e8f0; font-weight: 600; }
+
+        /* MRI Grid */
+        .mri-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .mri-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: fadeIn 0.4s ease forwards;
+            opacity: 0;
+        }
+        .mri-panel:nth-child(1) { animation-delay: 0.05s; }
+        .mri-panel:nth-child(2) { animation-delay: 0.1s; }
+        .mri-panel:nth-child(3) { animation-delay: 0.15s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .mri-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mri-panel-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mri-color-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+        }
+        .mri-color-dot.history { background: #64748b; }
+        .mri-color-dot.current { background: #3b82f6; }
+        .mri-color-dot.forecast { background: #e11d48; }
+
+        .mri-panel-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        .mri-panel-date {
+            font-size: 11px;
+            color: #94a3b8;
+            font-family: monospace;
+        }
+
+        .mri-tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .mri-tag.history  { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
+        .mri-tag.current  { background: #1d4ed8; color: #fff; }
+        .mri-tag.forecast { background: #9f1239; color: #fff; }
+
+        .mri-image-wrap {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+        }
+        .mri-image-wrap.history-border { border-color: #334155; }
+        .mri-image-wrap.current-border { border-color: #2563eb; box-shadow: 0 0 0 1px #1d4ed8; }
+        .mri-image-wrap.forecast-border { border-color: #be123c; box-shadow: 0 0 0 1px #9f1239; }
+
+        .mri-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.2s;
+        }
+        .mri-image-wrap img.zoomed {
+            transform: scale(1.8);
+            cursor: zoom-out;
+        }
+
+        .mri-overlay-tag {
+            position: absolute;
+            top: 10px; left: 10px;
+            background: rgba(0,0,0,0.75);
+            color: #e2e8f0;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .mri-panel-note {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.5;
+            border-left: 3px solid transparent;
+        }
+        .mri-panel-note.history-note  { border-left-color: #475569; }
+        .mri-panel-note.current-note  { border-left-color: #2563eb; }
+        .mri-panel-note.forecast-note { border-left-color: #e11d48; }
+
+        /* No image state */
+        .no-image {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: #475569; gap: 10px; min-height: 200px;
+        }
+        .no-image .no-img-icon { font-size: 40px; }
+        .no-image p { font-size: 13px; }
+
+        /* Footer */
+        .viewer-footer {
+            border-top: 1px solid #1e293b;
+            padding: 12px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0f172a;
+        }
+        .viewer-footer-info {
+            font-size: 11px;
+            color: #475569;
+        }
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            background: #1e293b;
+            color: #94a3b8;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.15s;
+            border: 1px solid #334155;
+        }
+        .footer-link:hover { background: #334155; color: #e2e8f0; }
+        .footer-link.primary {
+            background: #1d4ed8;
+            color: #fff;
+            border-color: transparent;
+        }
+        .footer-link.primary:hover { background: #1e40af; }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="viewer-topbar">
+    <div class="viewer-topbar-left">
+        <a href="/analysis/{{ filename }}" class="back-btn">← Back to Analysis</a>
+        <div class="viewer-patient-info">
+            <div class="viewer-patient-name">{{ name }}</div>
+            <div class="viewer-patient-meta">{{ pid }}</div>
+        </div>
+    </div>
+    <div class="viewer-topbar-right">
+        <span class="viewer-badge pacs">PACS Viewer</span>
+        <span class="viewer-badge ai">AI Overlay</span>
+    </div>
+</div>
+
+<!-- Main Viewer -->
+<div class="viewer-main">
+    <div class="scan-date-bar">
+        <strong>Scan Session:</strong>
+        {{ date_a }} <span class="arrow">→</span> {{ date_b }}
+        <span class="arrow">|</span>
+        <strong>AI Target:</strong> {{ date_c }}
+        &nbsp;·&nbsp;
+        Click any image to toggle zoom
+    </div>
+
+    <div class="mri-grid">
+        <!-- Historical -->
+        <div class="mri-panel">
+            <div class="mri-panel-header">
+                <div class="mri-panel-label">
+                    <div class="mri-color-dot history"></div>
+                    <div>
+                        <div class="mri-panel-title">Historical Scan</div>
+                        <div class="mri-panel-date">{{ date_a }}</div>
+                    </div>
+                </div>
+                <span class="mri-tag history">Baseline</span>
+            </div>
+            <div class="mri-image-wrap history-border">
+                {% if img_a %}
+                    <img src="/{{ img_a }}" alt="Historical MRI" onclick="toggleZoom(this)" id="img-a">
+                    <div class="mri-overlay-tag">Contour: Cyan</div>
+                {% else %}
+                    <div class="no-image">
+                        <div class="no-img-icon">🔬</div>
+                        <p>Run AI analysis to generate this scan</p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mri-panel-note history-note">
+                <strong style="color:#e2e8f0;">Baseline Scan (Scan A)</strong> — This is the earliest available MRI for this patient. Cyan contour outlines the radiologist-confirmed tumour boundary.
+            </div>
+        </div>
+
+        <!-- Current -->
+        <div class="mri-panel">
+            <div class="mri-panel-header">
+                <div class="mri-panel-label">
+                    <div class="mri-color-dot current"></div>
+                    <div>
+                        <div class="mri-panel-title">Current Scan</div>
+                        <div class="mri-panel-date">{{ date_b }}</div>
+                    </div>
+                </div>
+                <span class="mri-tag current">Current</span>
+            </div>
+            <div class="mri-image-wrap current-border">
+                {% if img_b %}
+                    <img src="/{{ img_b }}" alt="Current MRI" onclick="toggleZoom(this)" id="img-b">
+                    <div class="mri-overlay-tag">Contour: Cyan</div>
+                {% else %}
+                    <div class="no-image">
+                        <div class="no-img-icon">🔬</div>
+                        <p>Run AI analysis to generate this scan</p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mri-panel-note current-note">
+                <strong style="color:#e2e8f0;">Current Scan (Scan B)</strong> — The most recent observed MRI. Cyan contour outlines the current tumour boundary used as input for AI forecasting.
+            </div>
+        </div>
+
+        <!-- AI Forecast -->
+        <div class="mri-panel">
+            <div class="mri-panel-header">
+                <div class="mri-panel-label">
+                    <div class="mri-color-dot forecast"></div>
+                    <div>
+                        <div class="mri-panel-title">AI Forecast</div>
+                        <div class="mri-panel-date">{{ date_c }}</div>
+                    </div>
+                </div>
+                <span class="mri-tag forecast">Prediction</span>
+            </div>
+            <div class="mri-image-wrap forecast-border">
+                {% if img_pred %}
+                    <img src="/{{ img_pred }}" alt="AI Prediction MRI" onclick="toggleZoom(this)" id="img-pred">
+                    <div class="mri-overlay-tag">Contour: Red — AI Generated</div>
+                {% else %}
+                    <div class="no-image">
+                        <div class="no-img-icon">🤖</div>
+                        <p>Run AI analysis to generate forecast</p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mri-panel-note forecast-note">
+                <strong style="color:#e2e8f0;">AI Forecast (Scan C)</strong> — TempVSNet ensemble prediction of the expected tumour volume at the forecast date. Red contour is model-generated. For clinical decision support only.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="viewer-footer">
+    <div class="viewer-footer-info">
+        ⚠️ AI forecasts are for clinical decision support only and must be reviewed by a qualified clinician. Not for standalone diagnostic use.
+    </div>
+    <div style="display:flex; gap:10px;">
+        <a href="/patient/{{ pid }}" class="footer-link">👤 Patient Profile</a>
+        <a href="/analysis/{{ filename }}" class="footer-link primary">📊 Full Analysis Report</a>
+    </div>
+</div>
+
+<script>
+    function toggleZoom(img) {
+        img.classList.toggle('zoomed');
+    }
+</script>
+</body>
+</html>
