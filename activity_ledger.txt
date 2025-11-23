@@ -2343,3 +2343,4 @@
 [2025-11-23 10:07:44 +0530] docs: add research literature summary on acoustic neuroma surveillance protocols
 [2025-11-23 12:48:58 +0530] docs: compile radiomic feature benchmarks from recent clinical neuro-oncology trials
 [2025-11-23 13:35:06 +0530] feat: add script to inspect BraTS and VS-MC-RC2 longitudinal cohort structure
+[2025-11-23 18:38:28 +0530] feat: scaffold baseline directory layout for preprocessing and model pipelines
