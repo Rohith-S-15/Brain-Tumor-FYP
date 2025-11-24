@@ -2345,3 +2345,4 @@
 [2025-11-23 13:35:06 +0530] feat: add script to inspect BraTS and VS-MC-RC2 longitudinal cohort structure
 [2025-11-23 18:38:28 +0530] feat: scaffold baseline directory layout for preprocessing and model pipelines
 [2025-11-23 20:03:02 +0530] docs: compile radiomic feature benchmarks from recent clinical neuro-oncology trials
+[2025-11-24 09:49:52 +0530] chore: setup Python 3.10 virtual environment and dependency specifications
