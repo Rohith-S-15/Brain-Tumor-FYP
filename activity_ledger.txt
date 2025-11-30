@@ -2375,3 +2375,4 @@
 [2025-11-29 18:41:11 +0530] test: verify SimpleITK and nibabel DICOM/NIfTI parsing pipelines
 [2025-11-30 09:49:18 +0530] test: verify SimpleITK and nibabel DICOM/NIfTI parsing pipelines
 [2025-11-30 10:50:42 +0530] docs: add research literature summary on acoustic neuroma surveillance protocols
+[2025-11-30 13:22:08 +0530] feat: add script to inspect BraTS and VS-MC-RC2 longitudinal cohort structure
