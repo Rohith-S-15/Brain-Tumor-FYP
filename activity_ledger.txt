@@ -2386,3 +2386,4 @@
 [2025-12-01 22:39:21 +0530] feat: scaffold baseline directory layout for preprocessing and model pipelines
 [2025-12-02 09:47:32 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-02 10:53:05 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
+[2025-12-02 12:49:35 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
