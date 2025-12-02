@@ -2388,3 +2388,4 @@
 [2025-12-02 10:53:05 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2025-12-02 12:49:35 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
 [2025-12-02 18:50:09 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
+[2025-12-02 19:09:43 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
