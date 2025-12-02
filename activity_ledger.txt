@@ -2384,3 +2384,4 @@
 [2025-12-01 18:35:50 +0530] chore: setup Python 3.10 virtual environment and dependency specifications
 [2025-12-01 19:34:01 +0530] test: verify SimpleITK and nibabel DICOM/NIfTI parsing pipelines
 [2025-12-01 22:39:21 +0530] feat: scaffold baseline directory layout for preprocessing and model pipelines
+[2025-12-02 09:47:32 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
