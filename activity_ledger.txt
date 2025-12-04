@@ -2397,3 +2397,4 @@
 [2025-12-04 09:05:58 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
 [2025-12-04 12:03:56 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-04 19:22:05 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
+[2025-12-04 20:33:16 +0530] docs: document imaging protocols and cross-center voxel dimensions
