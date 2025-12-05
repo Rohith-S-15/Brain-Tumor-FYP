@@ -2400,3 +2400,4 @@
 [2025-12-04 20:33:16 +0530] docs: document imaging protocols and cross-center voxel dimensions
 [2025-12-05 10:43:28 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
 [2025-12-05 12:23:28 +0530] refactor: extract spatial transformation matrix helper into registration module
+[2025-12-05 15:27:30 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
