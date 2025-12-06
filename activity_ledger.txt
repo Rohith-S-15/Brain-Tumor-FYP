@@ -2409,3 +2409,4 @@
 [2025-12-06 12:35:54 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
 [2025-12-06 16:01:06 +0530] fix: resolve NaN gradients during intensity standardization across scan epochs
 [2025-12-06 17:49:55 +0530] feat: implement SyN deformable registration pipeline using ANTsPy
+[2025-12-06 20:16:11 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
