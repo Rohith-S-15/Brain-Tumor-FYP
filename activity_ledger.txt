@@ -2405,3 +2405,4 @@
 [2025-12-05 17:04:44 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
 [2025-12-05 21:42:42 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-05 22:07:04 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
+[2025-12-06 10:04:42 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
