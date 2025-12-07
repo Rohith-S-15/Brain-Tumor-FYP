@@ -2412,3 +2412,4 @@
 [2025-12-06 20:16:11 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
 [2025-12-06 22:27:32 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
 [2025-12-07 11:19:14 +0530] fix: resolve NaN gradients during intensity standardization across scan epochs
+[2025-12-07 12:04:38 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
