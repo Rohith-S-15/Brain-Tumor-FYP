@@ -2428,3 +2428,4 @@
 [2025-12-09 14:17:09 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2025-12-09 16:23:57 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
 [2025-12-09 20:05:57 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
+[2025-12-09 22:16:24 +0530] perf: cache registered displacement fields to avoid redundant computations
