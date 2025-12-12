@@ -2442,3 +2442,4 @@
 [2025-12-12 10:38:36 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
 [2025-12-12 11:10:28 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
 [2025-12-12 17:09:03 +0530] docs: document cohort demographics for 80 patients across 147 scan triplets
+[2025-12-12 20:20:24 +0530] perf: cache registered displacement fields to avoid redundant computations
