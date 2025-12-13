@@ -2447,3 +2447,4 @@
 [2025-12-12 22:56:03 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
 [2025-12-13 09:12:48 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
 [2025-12-13 11:22:51 +0530] feat: implement SyN deformable registration pipeline using ANTsPy
+[2025-12-13 12:27:52 +0530] docs: document imaging protocols and cross-center voxel dimensions
