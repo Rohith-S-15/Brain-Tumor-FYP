@@ -2453,3 +2453,4 @@
 [2025-12-14 12:02:43 +0530] refactor: clean up demographic CSV metadata parsing and validation
 [2025-12-14 13:13:26 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
 [2025-12-14 14:22:18 +0530] refactor: extract spatial transformation matrix helper into registration module
+[2025-12-14 16:56:05 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
