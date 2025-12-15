@@ -2458,3 +2458,4 @@
 [2025-12-14 21:23:42 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
 [2025-12-14 22:33:26 +0530] feat: implement paired longitudinal volume slice extraction
 [2025-12-15 09:28:39 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
+[2025-12-15 10:33:08 +0530] fix: resolve NaN gradients during intensity standardization across scan epochs
