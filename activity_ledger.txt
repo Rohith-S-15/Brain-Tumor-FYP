@@ -2463,3 +2463,4 @@
 [2025-12-15 15:37:13 +0530] docs: document imaging protocols and cross-center voxel dimensions
 [2025-12-15 18:17:03 +0530] docs: document imaging protocols and cross-center voxel dimensions
 [2025-12-15 20:46:28 +0530] refactor: clean up demographic CSV metadata parsing and validation
+[2025-12-16 10:43:55 +0530] docs: document imaging protocols and cross-center voxel dimensions
