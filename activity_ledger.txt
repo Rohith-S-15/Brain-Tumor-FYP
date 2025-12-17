@@ -2471,3 +2471,4 @@
 [2025-12-16 20:21:26 +0530] docs: document imaging protocols and cross-center voxel dimensions
 [2025-12-17 13:54:01 +0530] refactor: extract spatial transformation matrix helper into registration module
 [2025-12-17 15:20:19 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
+[2025-12-17 17:14:28 +0530] refactor: clean up demographic CSV metadata parsing and validation
