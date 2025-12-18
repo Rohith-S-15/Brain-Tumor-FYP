@@ -2475,3 +2475,4 @@
 [2025-12-17 18:51:38 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2025-12-17 22:39:42 +0530] perf: cache registered displacement fields to avoid redundant computations
 [2025-12-18 10:22:06 +0530] feat: implement SyN deformable registration pipeline using ANTsPy
+[2025-12-18 13:53:49 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
