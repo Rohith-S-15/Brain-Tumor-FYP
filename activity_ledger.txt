@@ -2484,3 +2484,4 @@
 [2025-12-19 16:01:58 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2025-12-19 18:49:56 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
 [2025-12-19 19:50:57 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
+[2025-12-19 20:07:50 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
