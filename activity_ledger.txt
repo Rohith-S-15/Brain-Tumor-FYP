@@ -2481,3 +2481,4 @@
 [2025-12-18 19:52:13 +0530] perf: cache registered displacement fields to avoid redundant computations
 [2025-12-19 12:16:10 +0530] feat: implement SyN deformable registration pipeline using ANTsPy
 [2025-12-19 15:42:45 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
+[2025-12-19 16:01:58 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
