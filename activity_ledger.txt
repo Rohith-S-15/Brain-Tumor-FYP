@@ -2490,3 +2490,4 @@
 [2025-12-20 15:29:58 +0530] perf: cache registered displacement fields to avoid redundant computations
 [2025-12-20 16:11:48 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-20 17:56:31 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
+[2025-12-20 18:29:17 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
