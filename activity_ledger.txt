@@ -2488,3 +2488,4 @@
 [2025-12-19 22:28:15 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-20 14:54:36 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
 [2025-12-20 15:29:58 +0530] perf: cache registered displacement fields to avoid redundant computations
+[2025-12-20 16:11:48 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
