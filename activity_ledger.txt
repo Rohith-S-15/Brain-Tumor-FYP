@@ -2504,3 +2504,4 @@
 [2025-12-22 13:32:02 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
 [2025-12-22 14:25:22 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2025-12-22 15:43:44 +0530] fix: resolve NaN gradients during intensity standardization across scan epochs
+[2025-12-22 16:52:26 +0530] feat: implement paired longitudinal volume slice extraction
