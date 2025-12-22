@@ -2500,3 +2500,4 @@
 [2025-12-21 17:22:35 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
 [2025-12-21 19:30:27 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
 [2025-12-22 09:32:15 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
+[2025-12-22 12:18:28 +0530] fix: resolve NaN gradients during intensity standardization across scan epochs
