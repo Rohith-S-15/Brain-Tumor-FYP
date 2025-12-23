@@ -2507,3 +2507,4 @@
 [2025-12-22 16:52:26 +0530] feat: implement paired longitudinal volume slice extraction
 [2025-12-22 18:47:11 +0530] refactor: clean up demographic CSV metadata parsing and validation
 [2025-12-23 11:12:04 +0530] refactor: extract spatial transformation matrix helper into registration module
+[2025-12-23 15:17:25 +0530] fix: resolve NaN gradients during intensity standardization across scan epochs
