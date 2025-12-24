@@ -2514,3 +2514,4 @@
 [2025-12-24 10:05:50 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-24 13:42:03 +0530] docs: document cohort demographics for 80 patients across 147 scan triplets
 [2025-12-24 14:49:02 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
+[2025-12-24 16:16:13 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
