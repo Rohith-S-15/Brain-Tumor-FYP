@@ -2522,3 +2522,4 @@
 [2025-12-25 13:44:25 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
 [2025-12-25 21:26:46 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
 [2025-12-26 09:23:35 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
+[2025-12-26 10:28:43 +0530] docs: document cohort demographics for 80 patients across 147 scan triplets
