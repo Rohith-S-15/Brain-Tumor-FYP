@@ -2526,3 +2526,4 @@
 [2025-12-26 18:24:05 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
 [2025-12-26 19:33:42 +0530] refactor: clean up demographic CSV metadata parsing and validation
 [2025-12-26 20:22:01 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
+[2025-12-26 22:55:27 +0530] docs: document imaging protocols and cross-center voxel dimensions
