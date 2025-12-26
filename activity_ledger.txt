@@ -2525,3 +2525,4 @@
 [2025-12-26 10:28:43 +0530] docs: document cohort demographics for 80 patients across 147 scan triplets
 [2025-12-26 18:24:05 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
 [2025-12-26 19:33:42 +0530] refactor: clean up demographic CSV metadata parsing and validation
+[2025-12-26 20:22:01 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
