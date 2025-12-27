@@ -2533,3 +2533,4 @@
 [2025-12-27 17:21:55 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
 [2025-12-27 19:16:54 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
 [2025-12-27 20:06:18 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
+[2025-12-27 21:57:29 +0530] feat: implement SyN deformable registration pipeline using ANTsPy
