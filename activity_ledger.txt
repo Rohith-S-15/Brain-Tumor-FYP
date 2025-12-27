@@ -2528,3 +2528,4 @@
 [2025-12-26 20:22:01 +0530] feat: build triplet dataset loader (t0 baseline, t1 follow-up, t2 target)
 [2025-12-26 22:55:27 +0530] docs: document imaging protocols and cross-center voxel dimensions
 [2025-12-27 11:30:28 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
+[2025-12-27 13:53:47 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
