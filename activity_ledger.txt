@@ -2539,3 +2539,4 @@
 [2025-12-28 20:18:36 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2025-12-28 21:01:34 +0530] perf: optimize 3D voxel resampling to isotropic 0.5x0.5x1.0mm grid
 [2025-12-28 22:13:06 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
+[2025-12-29 09:45:16 +0530] refactor: extract spatial transformation matrix helper into registration module
