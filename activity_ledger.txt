@@ -2541,3 +2541,4 @@
 [2025-12-28 22:13:06 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2025-12-29 09:45:16 +0530] refactor: extract spatial transformation matrix helper into registration module
 [2025-12-29 10:20:43 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
+[2025-12-29 12:38:24 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
