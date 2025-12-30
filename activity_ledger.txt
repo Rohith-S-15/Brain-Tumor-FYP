@@ -2550,3 +2550,4 @@
 [2025-12-30 13:49:34 +0530] feat: implement SyN deformable registration pipeline using ANTsPy
 [2025-12-30 16:39:19 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
 [2025-12-30 20:07:54 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
+[2025-12-30 22:13:19 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
