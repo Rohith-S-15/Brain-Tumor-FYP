@@ -2556,3 +2556,4 @@
 [2025-12-31 17:07:56 +0530] refactor: extract spatial transformation matrix helper into registration module
 [2025-12-31 20:01:37 +0530] test: validate voxel coordinates consistency on 147 longitudinal triplets
 [2026-01-01 10:05:37 +0530] docs: document cohort demographics for 80 patients across 147 scan triplets
+[2026-01-01 15:41:44 +0530] perf: cache registered displacement fields to avoid redundant computations
