@@ -2563,3 +2563,4 @@
 [2026-01-01 22:06:16 +0530] test: benchmark ANTsPy SyN registration execution time per 3D volume
 [2026-01-02 09:49:14 +0530] feat: add contrast normalization for T1-weighted post-gadolinium sequences
 [2026-01-02 10:41:14 +0530] docs: document imaging protocols and cross-center voxel dimensions
+[2026-01-02 13:17:43 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
