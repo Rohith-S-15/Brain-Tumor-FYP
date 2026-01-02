@@ -2565,3 +2565,4 @@
 [2026-01-02 10:41:14 +0530] docs: document imaging protocols and cross-center voxel dimensions
 [2026-01-02 13:17:43 +0530] fix: handle skull-stripping boundary artifacts in temporal bone regions
 [2026-01-02 15:06:11 +0530] feat: initial project structure for Vestibular Schwannoma longitudinal study
+[2026-01-02 16:16:12 +0530] test: verify rigid alignment loss across baseline and follow-up MRI pairs
