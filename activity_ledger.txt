@@ -2571,3 +2571,4 @@
 [2026-01-03 12:38:43 +0530] docs: document time interval normalization formulation (delta-t in days)
 [2026-01-03 13:52:13 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
 [2026-01-03 19:28:08 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
+[2026-01-03 22:35:15 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
