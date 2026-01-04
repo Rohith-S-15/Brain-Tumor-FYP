@@ -2575,3 +2575,4 @@
 [2026-01-04 13:19:29 +0530] refactor: modularize checkpoint saver to store model weights, optimizer state, and epoch metrics
 [2026-01-04 18:08:30 +0530] feat: add binary focal loss component to penalize boundary voxel errors
 [2026-01-04 20:45:20 +0530] feat: add binary focal loss component to penalize boundary voxel errors
+[2026-01-04 21:45:26 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
