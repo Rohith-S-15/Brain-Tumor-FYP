@@ -2572,3 +2572,4 @@
 [2026-01-03 13:52:13 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
 [2026-01-03 19:28:08 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
 [2026-01-03 22:35:15 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
+[2026-01-04 13:19:29 +0530] refactor: modularize checkpoint saver to store model weights, optimizer state, and epoch metrics
