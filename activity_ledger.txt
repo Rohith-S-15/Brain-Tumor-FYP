@@ -2579,3 +2579,4 @@
 [2026-01-05 14:17:02 +0530] test: benchmark memory consumption across batch sizes on NVIDIA GPU
 [2026-01-05 15:06:15 +0530] feat: implement 3D spatial patch extraction with overlap for high-res MRI volumes
 [2026-01-05 18:44:54 +0530] fix: correct padding asymmetry in 3D transposed convolution upsampling layers
+[2026-01-05 20:56:37 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
