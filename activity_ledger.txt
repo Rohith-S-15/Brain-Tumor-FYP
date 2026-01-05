@@ -2576,3 +2576,4 @@
 [2026-01-04 18:08:30 +0530] feat: add binary focal loss component to penalize boundary voxel errors
 [2026-01-04 20:45:20 +0530] feat: add binary focal loss component to penalize boundary voxel errors
 [2026-01-04 21:45:26 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
+[2026-01-05 14:17:02 +0530] test: benchmark memory consumption across batch sizes on NVIDIA GPU
