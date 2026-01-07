@@ -2588,3 +2588,4 @@
 [2026-01-06 21:27:22 +0530] docs: document time interval normalization formulation (delta-t in days)
 [2026-01-07 09:06:21 +0530] refactor: modularize checkpoint saver to store model weights, optimizer state, and epoch metrics
 [2026-01-07 16:17:21 +0530] docs: document time interval normalization formulation (delta-t in days)
+[2026-01-07 17:08:50 +0530] test: benchmark memory consumption across batch sizes on NVIDIA GPU
