@@ -2590,3 +2590,4 @@
 [2026-01-07 16:17:21 +0530] docs: document time interval normalization formulation (delta-t in days)
 [2026-01-07 17:08:50 +0530] test: benchmark memory consumption across batch sizes on NVIDIA GPU
 [2026-01-07 21:26:56 +0530] feat: implement soft Dice loss with Laplace smoothing for extreme class imbalance
+[2026-01-07 22:33:53 +0530] feat: implement bidirectional ConvLSTM cell with hidden state recurrence
