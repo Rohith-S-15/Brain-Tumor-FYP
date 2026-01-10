@@ -2601,3 +2601,4 @@
 [2026-01-09 15:08:42 +0530] feat: implement soft Dice loss with Laplace smoothing for extreme class imbalance
 [2026-01-09 17:54:10 +0530] feat: add binary focal loss component to penalize boundary voxel errors
 [2026-01-09 22:32:46 +0530] feat: add binary focal loss component to penalize boundary voxel errors
+[2026-01-10 11:33:48 +0530] feat: implement soft Dice loss with Laplace smoothing for extreme class imbalance
