@@ -2606,3 +2606,4 @@
 [2026-01-10 15:56:05 +0530] feat: add binary focal loss component to penalize boundary voxel errors
 [2026-01-10 17:18:50 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
 [2026-01-10 18:51:55 +0530] feat: add multi-scale feature skip connections across encoder and decoder pathways
+[2026-01-11 16:56:10 +0530] test: verify gradient flow stability through unrolled longitudinal time steps
