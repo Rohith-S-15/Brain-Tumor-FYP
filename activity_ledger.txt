@@ -2619,3 +2619,4 @@
 [2026-01-13 10:30:01 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
 [2026-01-13 16:47:10 +0530] fix: correct padding asymmetry in 3D transposed convolution upsampling layers
 [2026-01-13 17:27:56 +0530] refactor: decouple convolutional feature extractor from spatiotemporal LSTM blocks
+[2026-01-13 22:42:10 +0530] docs: document time interval normalization formulation (delta-t in days)
