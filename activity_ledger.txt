@@ -2621,3 +2621,4 @@
 [2026-01-13 17:27:56 +0530] refactor: decouple convolutional feature extractor from spatiotemporal LSTM blocks
 [2026-01-13 22:42:10 +0530] docs: document time interval normalization formulation (delta-t in days)
 [2026-01-14 10:25:21 +0530] docs: document time interval normalization formulation (delta-t in days)
+[2026-01-14 14:41:46 +0530] refactor: decouple convolutional feature extractor from spatiotemporal LSTM blocks
