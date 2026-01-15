@@ -2627,3 +2627,4 @@
 [2026-01-14 22:35:03 +0530] refactor: decouple convolutional feature extractor from spatiotemporal LSTM blocks
 [2026-01-15 10:29:11 +0530] fix: correct padding asymmetry in 3D transposed convolution upsampling layers
 [2026-01-15 15:45:20 +0530] feat: add multi-scale feature skip connections across encoder and decoder pathways
+[2026-01-15 19:58:02 +0530] test: verify gradient flow stability through unrolled longitudinal time steps
