@@ -2628,3 +2628,4 @@
 [2026-01-15 10:29:11 +0530] fix: correct padding asymmetry in 3D transposed convolution upsampling layers
 [2026-01-15 15:45:20 +0530] feat: add multi-scale feature skip connections across encoder and decoder pathways
 [2026-01-15 19:58:02 +0530] test: verify gradient flow stability through unrolled longitudinal time steps
+[2026-01-15 21:03:21 +0530] feat: implement bidirectional ConvLSTM cell with hidden state recurrence
