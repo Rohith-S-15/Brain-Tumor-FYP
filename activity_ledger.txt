@@ -2630,3 +2630,4 @@
 [2026-01-15 19:58:02 +0530] test: verify gradient flow stability through unrolled longitudinal time steps
 [2026-01-15 21:03:21 +0530] feat: implement bidirectional ConvLSTM cell with hidden state recurrence
 [2026-01-16 11:06:40 +0530] docs: document time interval normalization formulation (delta-t in days)
+[2026-01-16 15:56:25 +0530] feat: implement soft Dice loss with Laplace smoothing for extreme class imbalance
