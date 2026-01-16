@@ -2632,3 +2632,4 @@
 [2026-01-16 11:06:40 +0530] docs: document time interval normalization formulation (delta-t in days)
 [2026-01-16 15:56:25 +0530] feat: implement soft Dice loss with Laplace smoothing for extreme class imbalance
 [2026-01-16 18:40:44 +0530] feat: add learning rate warmup scheduler with cosine annealing decay
+[2026-01-16 19:16:32 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
