@@ -2647,3 +2647,4 @@
 [2026-01-18 16:15:39 +0530] fix: correct padding asymmetry in 3D transposed convolution upsampling layers
 [2026-01-18 18:52:23 +0530] feat: add learning rate warmup scheduler with cosine annealing decay
 [2026-01-18 20:15:41 +0530] feat: implement bidirectional ConvLSTM cell with hidden state recurrence
+[2026-01-19 09:51:29 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
