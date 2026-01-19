@@ -2649,3 +2649,4 @@
 [2026-01-18 20:15:41 +0530] feat: implement bidirectional ConvLSTM cell with hidden state recurrence
 [2026-01-19 09:51:29 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
 [2026-01-19 13:03:38 +0530] feat: add multi-scale feature skip connections across encoder and decoder pathways
+[2026-01-19 19:24:47 +0530] feat: implement soft Dice loss with Laplace smoothing for extreme class imbalance
