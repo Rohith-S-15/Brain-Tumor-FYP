@@ -2658,3 +2658,4 @@
 [2026-01-20 19:08:30 +0530] test: verify gradient flow stability through unrolled longitudinal time steps
 [2026-01-20 21:05:10 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
 [2026-01-21 09:08:30 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
+[2026-01-21 10:24:44 +0530] refactor: decouple convolutional feature extractor from spatiotemporal LSTM blocks
