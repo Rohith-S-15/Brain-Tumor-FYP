@@ -2669,3 +2669,4 @@
 [2026-01-22 22:03:03 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
 [2026-01-23 14:48:45 +0530] test: unit test volumetric Hausdorff 95 distance calculation on synthetic masks
 [2026-01-23 15:35:27 +0530] docs: document time interval normalization formulation (delta-t in days)
+[2026-01-23 16:38:48 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
