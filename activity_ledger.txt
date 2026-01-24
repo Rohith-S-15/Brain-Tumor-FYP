@@ -2671,3 +2671,4 @@
 [2026-01-23 15:35:27 +0530] docs: document time interval normalization formulation (delta-t in days)
 [2026-01-23 16:38:48 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
 [2026-01-23 19:47:10 +0530] docs: document time interval normalization formulation (delta-t in days)
+[2026-01-24 09:29:16 +0530] test: verify gradient flow stability through unrolled longitudinal time steps
