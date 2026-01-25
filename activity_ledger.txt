@@ -2676,3 +2676,4 @@
 [2026-01-24 14:07:44 +0530] feat: implement bidirectional ConvLSTM cell with hidden state recurrence
 [2026-01-24 16:24:35 +0530] perf: optimize volumetric data loader caching with PyTorch SharedMemory
 [2026-01-24 20:58:42 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
+[2026-01-25 09:51:22 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
