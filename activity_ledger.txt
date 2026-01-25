@@ -2678,3 +2678,4 @@
 [2026-01-24 20:58:42 +0530] perf: implement gradient checkpointing in 3D ConvLSTM to reduce VRAM peak
 [2026-01-25 09:51:22 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
 [2026-01-25 10:16:09 +0530] test: benchmark 5-fold ensemble cross-validation split balance
+[2026-01-25 12:51:37 +0530] refactor: save best model checkpoints across fold0 through fold4
