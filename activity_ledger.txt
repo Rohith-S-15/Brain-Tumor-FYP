@@ -2687,3 +2687,4 @@
 [2026-01-26 10:23:51 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
 [2026-01-26 11:51:16 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-01-26 13:38:21 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
+[2026-01-26 17:02:12 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
