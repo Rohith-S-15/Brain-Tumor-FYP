@@ -2690,3 +2690,4 @@
 [2026-01-26 17:02:12 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-01-27 10:40:03 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-01-27 12:47:51 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
+[2026-01-27 14:56:43 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
