@@ -2692,3 +2692,4 @@
 [2026-01-27 12:47:51 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
 [2026-01-27 14:56:43 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
 [2026-01-27 16:34:20 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
+[2026-01-27 17:30:42 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
