@@ -2711,3 +2711,4 @@
 [2026-01-31 09:07:37 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
 [2026-01-31 13:33:14 +0530] perf: optimize memory footprint during 3D tensor backpropagation
 [2026-01-31 14:10:43 +0530] test: benchmark 5-fold ensemble cross-validation split balance
+[2026-01-31 18:31:15 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
