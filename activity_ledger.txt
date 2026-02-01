@@ -2717,3 +2717,4 @@
 [2026-01-31 22:36:24 +0530] perf: enable mixed precision autocast to accelerate 3D convolution forward passes
 [2026-02-01 13:02:12 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-02-01 18:18:45 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
+[2026-02-01 19:49:20 +0530] feat: calculate annual tumor doubling time (TDT) using logarithmic growth kinetics
