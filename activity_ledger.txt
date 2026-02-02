@@ -2721,3 +2721,4 @@
 [2026-02-01 20:22:23 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-02-02 09:14:25 +0530] refactor: save best model checkpoints across fold0 through fold4
 [2026-02-02 10:27:30 +0530] feat: calculate annual tumor doubling time (TDT) using logarithmic growth kinetics
+[2026-02-02 17:22:11 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
