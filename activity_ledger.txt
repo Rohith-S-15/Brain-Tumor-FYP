@@ -2725,3 +2725,4 @@
 [2026-02-02 19:24:20 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-02-02 20:47:21 +0530] refactor: modularize spatiotemporal feature concatenation block
 [2026-02-03 10:43:28 +0530] refactor: save best model checkpoints across fold0 through fold4
+[2026-02-03 13:32:39 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
