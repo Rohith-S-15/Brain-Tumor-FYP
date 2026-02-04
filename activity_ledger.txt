@@ -2731,3 +2731,4 @@
 [2026-02-04 09:01:14 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-02-04 12:20:14 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
 [2026-02-04 13:50:09 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
+[2026-02-04 15:49:17 +0530] test: benchmark 5-fold ensemble cross-validation split balance
