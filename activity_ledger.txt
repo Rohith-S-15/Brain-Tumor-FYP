@@ -2729,3 +2729,4 @@
 [2026-02-03 16:29:27 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-02-03 19:18:14 +0530] perf: optimize memory footprint during 3D tensor backpropagation
 [2026-02-04 09:01:14 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
+[2026-02-04 12:20:14 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
