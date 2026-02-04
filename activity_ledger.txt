@@ -2733,3 +2733,4 @@
 [2026-02-04 13:50:09 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
 [2026-02-04 15:49:17 +0530] test: benchmark 5-fold ensemble cross-validation split balance
 [2026-02-04 17:19:21 +0530] feat: calculate annual tumor doubling time (TDT) using logarithmic growth kinetics
+[2026-02-04 19:08:01 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
