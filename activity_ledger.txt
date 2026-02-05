@@ -2739,3 +2739,4 @@
 [2026-02-05 10:37:28 +0530] feat: generate 5-fold ensemble prediction fusion using voxel-wise majority voting
 [2026-02-05 15:37:26 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-02-05 16:46:41 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
+[2026-02-05 20:27:19 +0530] feat: implement composite loss combining soft Dice loss and binary cross-entropy
