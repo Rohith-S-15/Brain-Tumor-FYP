@@ -2765,3 +2765,4 @@
 [2026-02-09 14:04:29 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
 [2026-02-09 16:07:52 +0530] feat: generate 5-fold ensemble prediction fusion using voxel-wise majority voting
 [2026-02-09 17:58:54 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
+[2026-02-09 18:22:46 +0530] perf: enable mixed precision autocast to accelerate 3D convolution forward passes
