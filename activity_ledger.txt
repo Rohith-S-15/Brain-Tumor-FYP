@@ -2761,3 +2761,4 @@
 [2026-02-08 19:30:29 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
 [2026-02-08 21:03:04 +0530] feat: calculate annual tumor doubling time (TDT) using logarithmic growth kinetics
 [2026-02-09 09:39:31 +0530] perf: enable mixed precision autocast to accelerate 3D convolution forward passes
+[2026-02-09 12:33:10 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
