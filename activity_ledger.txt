@@ -2775,3 +2775,4 @@
 [2026-02-10 22:19:17 +0530] feat: calculate annual tumor doubling time (TDT) using logarithmic growth kinetics
 [2026-02-11 13:09:39 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
 [2026-02-11 14:46:06 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
+[2026-02-11 15:20:36 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
