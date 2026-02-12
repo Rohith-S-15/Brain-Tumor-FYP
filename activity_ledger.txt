@@ -2779,3 +2779,4 @@
 [2026-02-11 19:25:42 +0530] refactor: save best model checkpoints across fold0 through fold4
 [2026-02-11 20:51:22 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
 [2026-02-12 15:24:02 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
+[2026-02-12 17:24:20 +0530] test: benchmark 5-fold ensemble cross-validation split balance
