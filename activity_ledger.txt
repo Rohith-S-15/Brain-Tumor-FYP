@@ -2784,3 +2784,4 @@
 [2026-02-12 22:22:50 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
 [2026-02-13 17:03:43 +0530] feat: implement composite loss combining soft Dice loss and binary cross-entropy
 [2026-02-13 20:22:57 +0530] refactor: modularize spatiotemporal feature concatenation block
+[2026-02-13 21:50:40 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
