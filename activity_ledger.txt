@@ -2792,3 +2792,4 @@
 [2026-02-14 16:49:48 +0530] refactor: save best model checkpoints across fold0 through fold4
 [2026-02-14 20:51:29 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
 [2026-02-15 14:50:19 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
+[2026-02-15 16:50:25 +0530] refactor: modularize spatiotemporal feature concatenation block
