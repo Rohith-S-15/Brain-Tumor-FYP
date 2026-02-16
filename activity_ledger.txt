@@ -2797,3 +2797,4 @@
 [2026-02-15 19:27:11 +0530] perf: enable mixed precision autocast to accelerate 3D convolution forward passes
 [2026-02-15 21:53:13 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
 [2026-02-16 10:06:49 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
+[2026-02-16 13:11:18 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
