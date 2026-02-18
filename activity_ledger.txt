@@ -2811,3 +2811,4 @@
 [2026-02-18 12:39:34 +0530] perf: enable mixed precision autocast to accelerate 3D convolution forward passes
 [2026-02-18 13:28:08 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-02-18 16:50:19 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
+[2026-02-18 18:16:20 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
