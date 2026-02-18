@@ -2812,3 +2812,4 @@
 [2026-02-18 13:28:08 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-02-18 16:50:19 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
 [2026-02-18 18:16:20 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
+[2026-02-18 20:08:04 +0530] feat: calculate annual tumor doubling time (TDT) using logarithmic growth kinetics
