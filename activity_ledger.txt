@@ -2818,3 +2818,4 @@
 [2026-02-19 13:27:12 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
 [2026-02-19 15:43:43 +0530] test: compute Dice similarity coefficient and 95th percentile Hausdorff distance
 [2026-02-19 20:06:34 +0530] feat: generate 5-fold ensemble prediction fusion using voxel-wise majority voting
+[2026-02-20 09:25:24 +0530] feat: implement composite loss combining soft Dice loss and binary cross-entropy
