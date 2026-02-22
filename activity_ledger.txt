@@ -2830,3 +2830,4 @@
 [2026-02-21 22:05:46 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-02-22 09:49:42 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
 [2026-02-22 13:13:19 +0530] feat: implement composite loss combining soft Dice loss and binary cross-entropy
+[2026-02-22 15:23:56 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
