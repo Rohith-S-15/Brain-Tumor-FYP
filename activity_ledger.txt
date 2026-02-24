@@ -2845,3 +2845,4 @@
 [2026-02-24 16:05:43 +0530] perf: enable mixed precision autocast to accelerate 3D convolution forward passes
 [2026-02-24 19:41:26 +0530] refactor: save best model checkpoints across fold0 through fold4
 [2026-02-24 20:24:33 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
+[2026-02-24 21:52:48 +0530] feat: add sinusoidal time encoding layer for irregular follow-up intervals
