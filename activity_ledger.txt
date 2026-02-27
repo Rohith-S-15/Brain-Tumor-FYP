@@ -2857,3 +2857,4 @@
 [2026-02-26 21:32:13 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
 [2026-02-26 22:08:09 +0530] fix: stabilize ConvLSTM hidden state initialization across sequential epochs
 [2026-02-27 14:23:46 +0530] docs: document mathematical formulation for sinusoidal temporal positional embeddings
+[2026-02-27 19:05:36 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
