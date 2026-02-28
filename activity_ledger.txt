@@ -2863,3 +2863,4 @@
 [2026-02-28 10:51:32 +0530] fix: prevent zero-division error in HD95 calculation when contours are identical
 [2026-02-28 11:02:24 +0530] feat: implement TempVSNet dual-encoder 3D ConvLSTM architecture
 [2026-02-28 12:36:37 +0530] feat: implement composite loss combining soft Dice loss and binary cross-entropy
+[2026-02-28 17:24:30 +0530] test: evaluate AUC-ROC performance on held-out 80-patient evaluation cohort
