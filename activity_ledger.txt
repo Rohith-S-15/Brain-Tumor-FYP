@@ -2882,3 +2882,4 @@
 [2026-03-15 10:50:37 +0530] test: cross-validate Hausdorff distance stability on peripheral contour voxels
 [2026-03-15 14:17:42 +0530] refactor: optimize multi-worker DataLoader prefetching for 3D patches
 [2026-03-15 18:14:50 +0530] docs: document hyperparameter grid search for ConvLSTM hidden dimensions
+[2026-03-15 19:37:27 +0530] test: evaluate model robustness against skull-stripping boundary variations
