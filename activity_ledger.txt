@@ -2888,3 +2888,4 @@
 [2026-04-02 10:31:30 +0530] test: cross-validate Hausdorff distance stability on peripheral contour voxels
 [2026-04-02 11:14:22 +0530] test: cross-validate Hausdorff distance stability on peripheral contour voxels
 [2026-04-02 13:39:10 +0530] docs: compile comprehensive 5-fold cross-validation performance report
+[2026-04-02 15:21:56 +0530] test: evaluate model robustness against skull-stripping boundary variations
