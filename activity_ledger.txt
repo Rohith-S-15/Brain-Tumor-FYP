@@ -2894,3 +2894,4 @@
 [2026-04-03 12:07:04 +0530] test: cross-validate Hausdorff distance stability on peripheral contour voxels
 [2026-04-03 13:19:25 +0530] test: cross-validate Hausdorff distance stability on peripheral contour voxels
 [2026-04-03 16:56:40 +0530] test: cross-validate Hausdorff distance stability on peripheral contour voxels
+[2026-04-03 21:27:16 +0530] docs: document hyperparameter grid search for ConvLSTM hidden dimensions
