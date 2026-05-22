@@ -2903,3 +2903,4 @@
 [2026-05-22 16:01:55 +0530] refactor: consolidate cross-entropy loss weights for high-imbalance tumor voxels
 [2026-05-22 18:07:28 +0530] docs: prepare mid-term ablation study comparison on sinusoidal vs linear time embeddings
 [2026-05-22 19:09:57 +0530] docs: prepare mid-term ablation study comparison on sinusoidal vs linear time embeddings
+[2026-05-22 21:17:47 +0530] test: cross-validate Dice coefficient stability on difficult cystic vestibular schwannomas
