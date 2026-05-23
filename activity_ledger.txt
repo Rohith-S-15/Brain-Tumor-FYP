@@ -2908,3 +2908,4 @@
 [2026-05-23 13:18:53 +0530] perf: benchmark PyTorch inference throughput and memory profiling during multi-slice passes
 [2026-05-23 15:40:44 +0530] docs: document mid-term project milestones and evaluation checklist for faculty review
 [2026-05-23 16:40:08 +0530] fix: correct edge padding when extracting volumetric bounding boxes around IAC region
+[2026-05-23 17:09:07 +0530] test: evaluate sensitivity of 5-fold ensemble against varying slice thickness (1mm to 2mm)
