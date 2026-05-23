@@ -2904,3 +2904,4 @@
 [2026-05-22 18:07:28 +0530] docs: prepare mid-term ablation study comparison on sinusoidal vs linear time embeddings
 [2026-05-22 19:09:57 +0530] docs: prepare mid-term ablation study comparison on sinusoidal vs linear time embeddings
 [2026-05-22 21:17:47 +0530] test: cross-validate Dice coefficient stability on difficult cystic vestibular schwannomas
+[2026-05-23 10:49:36 +0530] fix: correct edge padding when extracting volumetric bounding boxes around IAC region
