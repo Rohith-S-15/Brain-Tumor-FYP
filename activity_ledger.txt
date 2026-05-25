@@ -2921,3 +2921,4 @@
 [2026-05-25 10:17:42 +0530] test: cross-validate Dice coefficient stability on difficult cystic vestibular schwannomas
 [2026-05-25 13:51:50 +0530] style: refine clinical evaluation charts for multi-disciplinary team progress meeting
 [2026-05-25 15:38:37 +0530] fix: correct edge padding when extracting volumetric bounding boxes around IAC region
+[2026-05-25 18:15:47 +0530] refactor: consolidate cross-entropy loss weights for high-imbalance tumor voxels
