@@ -2927,3 +2927,4 @@
 [2026-05-26 10:21:27 +0530] docs: document mid-term project milestones and evaluation checklist for faculty review
 [2026-05-26 12:10:27 +0530] fix: correct edge padding when extracting volumetric bounding boxes around IAC region
 [2026-05-26 18:45:14 +0530] style: refine clinical evaluation charts for multi-disciplinary team progress meeting
+[2026-05-26 20:27:33 +0530] docs: prepare mid-term ablation study comparison on sinusoidal vs linear time embeddings
