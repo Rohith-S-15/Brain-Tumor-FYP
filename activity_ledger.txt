@@ -2924,3 +2924,4 @@
 [2026-05-25 18:15:47 +0530] refactor: consolidate cross-entropy loss weights for high-imbalance tumor voxels
 [2026-05-25 19:04:38 +0530] fix: correct edge padding when extracting volumetric bounding boxes around IAC region
 [2026-05-26 09:02:29 +0530] fix: correct edge padding when extracting volumetric bounding boxes around IAC region
+[2026-05-26 10:21:27 +0530] docs: document mid-term project milestones and evaluation checklist for faculty review
