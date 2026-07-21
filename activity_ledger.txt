@@ -2930,3 +2930,4 @@
 [2026-05-26 20:27:33 +0530] docs: prepare mid-term ablation study comparison on sinusoidal vs linear time embeddings
 [2026-07-21 12:43:31 +0530] refactor: design clinical report summary card schema for tumor kinetic metrics
 [2026-07-21 14:34:25 +0530] refactor: design clinical report summary card schema for tumor kinetic metrics
+[2026-07-21 17:21:12 +0530] test: verify automated PDF report typography rendering across PDF viewers
