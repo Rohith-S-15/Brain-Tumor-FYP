@@ -2934,3 +2934,4 @@
 [2026-07-21 22:30:35 +0530] perf: benchmark GPU inference latency during concurrent multiplanar slice generation
 [2026-08-13 12:20:15 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
 [2026-08-13 13:20:50 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
+[2026-08-13 16:19:46 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
