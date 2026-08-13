@@ -2935,3 +2935,4 @@
 [2026-08-13 12:20:15 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
 [2026-08-13 13:20:50 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
 [2026-08-13 16:19:46 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
+[2026-08-13 17:14:45 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
