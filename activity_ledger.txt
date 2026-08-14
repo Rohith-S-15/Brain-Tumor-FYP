@@ -2943,3 +2943,4 @@
 [2026-08-14 11:48:31 +0530] feat: build searchable patient database table with volumetric growth metrics filter
 [2026-08-14 13:14:13 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-08-14 14:53:35 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
+[2026-08-14 15:18:36 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
