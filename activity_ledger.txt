@@ -2938,3 +2938,4 @@
 [2026-08-13 17:14:45 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
 [2026-08-13 18:46:32 +0530] style: build responsive Tailwind dark-mode interface for neuro-oncology dashboard
 [2026-08-13 20:21:31 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
+[2026-08-14 09:23:29 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
