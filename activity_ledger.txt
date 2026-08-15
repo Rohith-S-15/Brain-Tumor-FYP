@@ -2948,3 +2948,4 @@
 [2026-08-15 10:07:44 +0530] refactor: decouple PDF generation pipeline from main request thread
 [2026-08-15 14:50:09 +0530] feat: support coronal and sagittal multiplanar reconstruction (MPR) projections
 [2026-08-15 15:01:36 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
+[2026-08-15 16:11:27 +0530] refactor: decouple PDF generation pipeline from main request thread
