@@ -2950,3 +2950,4 @@
 [2026-08-15 15:01:36 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
 [2026-08-15 16:11:27 +0530] refactor: decouple PDF generation pipeline from main request thread
 [2026-08-16 09:35:48 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
+[2026-08-16 10:47:55 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
