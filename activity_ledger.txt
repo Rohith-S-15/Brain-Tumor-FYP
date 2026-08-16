@@ -2949,3 +2949,4 @@
 [2026-08-15 14:50:09 +0530] feat: support coronal and sagittal multiplanar reconstruction (MPR) projections
 [2026-08-15 15:01:36 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
 [2026-08-15 16:11:27 +0530] refactor: decouple PDF generation pipeline from main request thread
+[2026-08-16 09:35:48 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
