@@ -2958,3 +2958,4 @@
 [2026-08-17 10:22:19 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
 [2026-08-17 13:30:42 +0530] test: verify PDF report formatting across single-session vs multi-session histories
 [2026-08-17 18:35:34 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
+[2026-08-17 21:32:57 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
