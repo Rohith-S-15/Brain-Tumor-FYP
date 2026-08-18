@@ -2959,3 +2959,4 @@
 [2026-08-17 13:30:42 +0530] test: verify PDF report formatting across single-session vs multi-session histories
 [2026-08-17 18:35:34 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
 [2026-08-17 21:32:57 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
+[2026-08-18 11:42:17 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
