@@ -2962,3 +2962,4 @@
 [2026-08-18 11:42:17 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
 [2026-08-18 14:46:12 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-08-18 16:01:48 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
+[2026-08-18 20:22:51 +0530] refactor: decouple PDF generation pipeline from main request thread
