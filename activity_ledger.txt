@@ -2969,3 +2969,4 @@
 [2026-08-19 17:17:25 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
 [2026-08-19 18:16:29 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-08-19 21:49:18 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
+[2026-08-19 22:22:20 +0530] feat: add digital verification QR code generator on exported patient summaries
