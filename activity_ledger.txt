@@ -2979,3 +2979,4 @@
 [2026-08-21 12:34:46 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
 [2026-08-21 18:24:05 +0530] feat: build searchable patient database table with volumetric growth metrics filter
 [2026-08-21 19:37:08 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
+[2026-08-21 21:04:54 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
