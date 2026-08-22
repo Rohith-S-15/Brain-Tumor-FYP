@@ -2983,3 +2983,4 @@
 [2026-08-22 10:52:04 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-08-22 12:30:09 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
 [2026-08-22 16:33:27 +0530] test: verify PDF report formatting across single-session vs multi-session histories
+[2026-08-22 18:30:37 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
