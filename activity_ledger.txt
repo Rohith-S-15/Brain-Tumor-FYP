@@ -2989,3 +2989,4 @@
 [2026-08-22 22:52:20 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
 [2026-08-23 09:03:19 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
 [2026-08-23 10:27:12 +0530] refactor: decouple PDF generation pipeline from main request thread
+[2026-08-23 16:50:09 +0530] feat: add digital verification QR code generator on exported patient summaries
