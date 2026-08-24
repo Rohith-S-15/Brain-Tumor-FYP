@@ -2997,3 +2997,4 @@
 [2026-08-24 15:47:15 +0530] test: verify PDF report formatting across single-session vs multi-session histories
 [2026-08-24 16:54:01 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-08-24 17:49:02 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
+[2026-08-24 21:20:30 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
