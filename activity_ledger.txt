@@ -2994,3 +2994,4 @@
 [2026-08-24 10:08:12 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-08-24 11:35:26 +0530] feat: build searchable patient database table with volumetric growth metrics filter
 [2026-08-24 14:34:09 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
+[2026-08-24 15:47:15 +0530] test: verify PDF report formatting across single-session vs multi-session histories
