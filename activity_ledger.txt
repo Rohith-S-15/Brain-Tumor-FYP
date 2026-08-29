@@ -3022,3 +3022,4 @@
 [2026-08-29 10:47:54 +0530] refactor: decouple PDF generation pipeline from main request thread
 [2026-08-29 14:13:04 +0530] feat: support coronal and sagittal multiplanar reconstruction (MPR) projections
 [2026-08-29 16:18:25 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
+[2026-08-29 17:44:39 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
