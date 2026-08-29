@@ -3020,3 +3020,4 @@
 [2026-08-28 19:46:10 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-08-28 21:52:30 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-08-29 10:47:54 +0530] refactor: decouple PDF generation pipeline from main request thread
+[2026-08-29 14:13:04 +0530] feat: support coronal and sagittal multiplanar reconstruction (MPR) projections
