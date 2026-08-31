@@ -3028,3 +3028,4 @@
 [2026-08-30 13:48:49 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-08-30 14:31:16 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
 [2026-08-30 16:45:39 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
+[2026-08-31 13:30:07 +0530] test: verify PDF report formatting across single-session vs multi-session histories
