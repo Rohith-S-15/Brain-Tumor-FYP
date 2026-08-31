@@ -3034,3 +3034,4 @@
 [2026-08-31 17:54:21 +0530] feat: build searchable patient database table with volumetric growth metrics filter
 [2026-08-31 19:14:24 +0530] feat: build searchable patient database table with volumetric growth metrics filter
 [2026-08-31 20:21:27 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
+[2026-08-31 21:03:37 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
