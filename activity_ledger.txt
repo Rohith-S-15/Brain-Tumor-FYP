@@ -3036,3 +3036,4 @@
 [2026-08-31 20:21:27 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-08-31 21:03:37 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
 [2026-09-01 12:32:36 +0530] refactor: decouple PDF generation pipeline from main request thread
+[2026-09-01 14:42:44 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
