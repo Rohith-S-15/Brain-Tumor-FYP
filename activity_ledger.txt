@@ -3043,3 +3043,4 @@
 [2026-09-02 09:53:43 +0530] feat: add dynamic volume overlay toggle with transparency slider
 [2026-09-02 10:04:49 +0530] feat: add digital verification QR code generator on exported patient summaries
 [2026-09-02 11:01:27 +0530] feat: initialize Flask clinical web dashboard application structure
+[2026-09-02 17:09:54 +0530] refactor: decouple PDF generation pipeline from main request thread
