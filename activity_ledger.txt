@@ -3041,3 +3041,4 @@
 [2026-09-01 18:49:53 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
 [2026-09-01 21:32:47 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
 [2026-09-02 09:53:43 +0530] feat: add dynamic volume overlay toggle with transparency slider
+[2026-09-02 10:04:49 +0530] feat: add digital verification QR code generator on exported patient summaries
