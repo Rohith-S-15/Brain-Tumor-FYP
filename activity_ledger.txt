@@ -3045,3 +3045,4 @@
 [2026-09-02 11:01:27 +0530] feat: initialize Flask clinical web dashboard application structure
 [2026-09-02 17:09:54 +0530] refactor: decouple PDF generation pipeline from main request thread
 [2026-09-02 19:41:15 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
+[2026-09-02 20:05:46 +0530] feat: support coronal and sagittal multiplanar reconstruction (MPR) projections
