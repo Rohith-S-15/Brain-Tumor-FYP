@@ -3050,3 +3050,4 @@
 [2026-09-03 09:01:02 +0530] feat: implement Multi-Disciplinary Team (MDT) rapid progressor triage alert badge
 [2026-09-03 15:34:47 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-09-03 17:18:35 +0530] feat: add digital verification QR code generator on exported patient summaries
+[2026-09-03 21:19:02 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
