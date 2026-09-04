@@ -3055,3 +3055,4 @@
 [2026-09-04 11:34:17 +0530] feat: add digital verification QR code generator on exported patient summaries
 [2026-09-04 12:53:23 +0530] feat: build searchable patient database table with volumetric growth metrics filter
 [2026-09-04 17:18:51 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
+[2026-09-04 22:26:06 +0530] feat: add dynamic volume overlay toggle with transparency slider
