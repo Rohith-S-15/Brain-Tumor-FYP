@@ -3059,3 +3059,4 @@
 [2026-09-05 09:26:25 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-09-05 10:25:36 +0530] style: build responsive Tailwind dark-mode interface for neuro-oncology dashboard
 [2026-09-05 19:31:04 +0530] test: verify PDF report formatting across single-session vs multi-session histories
+[2026-09-05 22:41:01 +0530] refactor: decouple PDF generation pipeline from main request thread
