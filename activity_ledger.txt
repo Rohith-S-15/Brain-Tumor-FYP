@@ -3065,3 +3065,4 @@
 [2026-09-06 12:37:31 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
 [2026-09-06 17:18:03 +0530] test: verify PDF report formatting across single-session vs multi-session histories
 [2026-09-06 18:05:44 +0530] feat: initialize Flask clinical web dashboard application structure
+[2026-09-06 22:18:58 +0530] feat: add dynamic volume overlay toggle with transparency slider
