@@ -3070,3 +3070,4 @@
 [2026-09-07 13:16:37 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
 [2026-09-07 15:54:55 +0530] feat: implement interactive slice-by-slice axial MRI canvas viewer
 [2026-09-07 20:25:44 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
+[2026-09-07 21:58:35 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
