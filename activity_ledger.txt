@@ -3075,3 +3075,4 @@
 [2026-09-08 10:40:39 +0530] feat: implement automated multi-page clinical PDF report generator with fpdf2
 [2026-09-08 12:26:50 +0530] feat: add cubic spline trajectory interpolation for tumor volume growth curve
 [2026-09-08 14:21:02 +0530] feat: add digital verification QR code generator on exported patient summaries
+[2026-09-08 15:41:18 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
