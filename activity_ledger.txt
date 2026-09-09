@@ -3077,3 +3077,4 @@
 [2026-09-08 14:21:02 +0530] feat: add digital verification QR code generator on exported patient summaries
 [2026-09-08 15:41:18 +0530] perf: optimize NPZ volume slice rendering to avoid browser canvas lag
 [2026-09-08 21:51:29 +0530] refactor: decouple PDF generation pipeline from main request thread
+[2026-09-09 12:46:05 +0530] refactor: decouple PDF generation pipeline from main request thread
