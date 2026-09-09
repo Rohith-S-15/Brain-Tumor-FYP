@@ -3079,3 +3079,4 @@
 [2026-09-08 21:51:29 +0530] refactor: decouple PDF generation pipeline from main request thread
 [2026-09-09 12:46:05 +0530] refactor: decouple PDF generation pipeline from main request thread
 [2026-09-09 13:06:18 +0530] fix: ensure proper matplotlib figure memory deallocation after plot generation
+[2026-09-09 18:10:25 +0530] feat: integrate Chart.js for longitudinal tumor growth kinetics trajectory visualization
