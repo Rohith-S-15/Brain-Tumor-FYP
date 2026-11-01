@@ -3094,3 +3094,4 @@
 [2026-11-01 11:32:39 +0530] feat: package production Docker container with GPU acceleration and healthchecks
 [2026-11-01 13:40:13 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
 [2026-11-01 15:30:07 +0530] refactor: streamline model inference pipeline to support on-demand single-patient inference
+[2026-11-01 16:09:20 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
