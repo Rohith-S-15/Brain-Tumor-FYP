@@ -3092,3 +3092,4 @@
 [2026-10-15 22:37:34 +0530] refactor: design clinical report summary card schema for tumor kinetic metrics
 [2026-11-01 10:47:41 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
 [2026-11-01 11:32:39 +0530] feat: package production Docker container with GPU acceleration and healthchecks
+[2026-11-01 13:40:13 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
