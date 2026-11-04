@@ -3130,3 +3130,4 @@
 [2026-11-04 16:45:29 +0530] feat: add radiologist review annotation tool for tumor boundary verification
 [2026-11-04 18:21:05 +0530] refactor: decouple frontend WebGL volume renderer from Flask API endpoints
 [2026-11-04 19:20:03 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
+[2026-11-04 21:52:46 +0530] fix: resolve edge case where missing baseline slice thickness caused coordinate drift
