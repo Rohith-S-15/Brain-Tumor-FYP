@@ -3135,3 +3135,4 @@
 [2026-11-05 09:57:13 +0530] perf: accelerate multiplanar reconstruction (MPR) slicing using NumPy SIMD routines
 [2026-11-05 11:29:38 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
 [2026-11-05 13:28:25 +0530] refactor: decouple frontend WebGL volume renderer from Flask API endpoints
+[2026-11-05 14:01:46 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
