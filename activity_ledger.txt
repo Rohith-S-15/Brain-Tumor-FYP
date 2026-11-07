@@ -3152,3 +3152,4 @@
 [2026-11-06 20:25:28 +0530] feat: add batch cohort processing script with automated PDF export
 [2026-11-06 21:12:32 +0530] feat: add export pipeline for anonymized volumetric DICOM sequence series
 [2026-11-06 22:41:35 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
+[2026-11-07 11:27:46 +0530] feat: add batch cohort processing script with automated PDF export
