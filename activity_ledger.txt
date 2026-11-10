@@ -3186,3 +3186,4 @@
 [2026-11-09 22:29:05 +0530] docs: finalize system architecture guide and clinical API documentation
 [2026-11-10 10:21:54 +0530] test: verify cross-platform PDF generation consistency across Linux and Windows hosts
 [2026-11-10 12:19:22 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
+[2026-11-10 13:36:37 +0530] feat: add batch cohort processing script with automated PDF export
