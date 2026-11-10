@@ -3191,3 +3191,4 @@
 [2026-11-10 15:55:32 +0530] docs: compile final clinical decision support validation and performance report
 [2026-11-10 16:51:22 +0530] refactor: streamline model inference pipeline to support on-demand single-patient inference
 [2026-11-10 17:58:44 +0530] test: verify cross-platform PDF generation consistency across Linux and Windows hosts
+[2026-11-10 18:49:04 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
