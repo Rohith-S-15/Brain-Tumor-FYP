@@ -3185,3 +3185,4 @@
 [2026-11-09 21:27:25 +0530] docs: finalize system architecture guide and clinical API documentation
 [2026-11-09 22:29:05 +0530] docs: finalize system architecture guide and clinical API documentation
 [2026-11-10 10:21:54 +0530] test: verify cross-platform PDF generation consistency across Linux and Windows hosts
+[2026-11-10 12:19:22 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
