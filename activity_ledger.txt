@@ -3249,3 +3249,4 @@
 [2026-11-15 14:24:04 +0530] feat: add export pipeline for anonymized volumetric DICOM sequence series
 [2026-11-15 15:32:55 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
 [2026-11-15 20:37:11 +0530] feat: add radiologist review annotation tool for tumor boundary verification
+[2026-11-15 21:24:11 +0530] feat: add batch cohort processing script with automated PDF export
