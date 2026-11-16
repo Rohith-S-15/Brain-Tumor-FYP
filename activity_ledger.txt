@@ -3258,3 +3258,4 @@
 [2026-11-16 14:58:04 +0530] feat: add export pipeline for anonymized volumetric DICOM sequence series
 [2026-11-16 15:12:15 +0530] refactor: decouple frontend WebGL volume renderer from Flask API endpoints
 [2026-11-16 17:52:34 +0530] fix: resolve edge case where missing baseline slice thickness caused coordinate drift
+[2026-11-16 19:03:26 +0530] style: enhance clinical dashboard contrast for low-light radiology reading rooms
