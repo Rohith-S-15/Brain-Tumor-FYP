@@ -3268,3 +3268,4 @@
 [2026-11-17 15:25:55 +0530] test: verify cross-platform PDF generation consistency across Linux and Windows hosts
 [2026-11-17 16:48:47 +0530] feat: add batch cohort processing script with automated PDF export
 [2026-11-17 17:20:07 +0530] docs: finalize system architecture guide and clinical API documentation
+[2026-11-17 18:14:34 +0530] fix: resolve edge case where missing baseline slice thickness caused coordinate drift
