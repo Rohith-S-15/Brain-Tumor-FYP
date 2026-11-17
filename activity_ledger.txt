@@ -3266,3 +3266,4 @@
 [2026-11-17 11:22:01 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
 [2026-11-17 12:49:43 +0530] docs: compile final clinical decision support validation and performance report
 [2026-11-17 15:25:55 +0530] test: verify cross-platform PDF generation consistency across Linux and Windows hosts
+[2026-11-17 16:48:47 +0530] feat: add batch cohort processing script with automated PDF export
