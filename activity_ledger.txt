@@ -3277,3 +3277,4 @@
 [2026-11-18 12:18:15 +0530] docs: finalize system architecture guide and clinical API documentation
 [2026-11-18 13:05:13 +0530] feat: add batch cohort processing script with automated PDF export
 [2026-11-18 14:09:50 +0530] feat: add batch cohort processing script with automated PDF export
+[2026-11-18 15:50:38 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
