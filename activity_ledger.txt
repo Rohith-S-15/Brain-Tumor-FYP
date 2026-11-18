@@ -3275,3 +3275,4 @@
 [2026-11-17 22:18:06 +0530] fix: resolve edge case where missing baseline slice thickness caused coordinate drift
 [2026-11-18 11:21:29 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
 [2026-11-18 12:18:15 +0530] docs: finalize system architecture guide and clinical API documentation
+[2026-11-18 13:05:13 +0530] feat: add batch cohort processing script with automated PDF export
