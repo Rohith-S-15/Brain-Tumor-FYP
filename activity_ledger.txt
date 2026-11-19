@@ -3287,3 +3287,4 @@
 [2026-11-19 10:12:02 +0530] refactor: streamline model inference pipeline to support on-demand single-patient inference
 [2026-11-19 11:26:55 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
 [2026-11-19 12:29:36 +0530] feat: package production Docker container with GPU acceleration and healthchecks
+[2026-11-19 13:48:36 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
