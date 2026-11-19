@@ -3285,3 +3285,4 @@
 [2026-11-18 22:08:35 +0530] fix: resolve edge case where missing baseline slice thickness caused coordinate drift
 [2026-11-19 09:17:53 +0530] feat: package production Docker container with GPU acceleration and healthchecks
 [2026-11-19 10:12:02 +0530] refactor: streamline model inference pipeline to support on-demand single-patient inference
+[2026-11-19 11:26:55 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
