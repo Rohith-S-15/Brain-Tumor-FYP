@@ -3297,3 +3297,4 @@
 [2026-11-20 10:37:28 +0530] test: stress-test Flask asynchronous report generation with concurrent user sessions
 [2026-11-20 11:53:47 +0530] test: stress-test Flask asynchronous report generation with concurrent user sessions
 [2026-11-20 12:26:32 +0530] test: stress-test Flask asynchronous report generation with concurrent user sessions
+[2026-11-20 14:02:25 +0530] feat: add batch cohort processing script with automated PDF export
