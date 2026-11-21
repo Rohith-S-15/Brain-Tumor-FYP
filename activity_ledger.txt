@@ -3304,3 +3304,4 @@
 [2026-11-20 21:18:18 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
 [2026-11-20 22:29:57 +0530] docs: compile final clinical decision support validation and performance report
 [2026-11-21 09:51:32 +0530] fix: resolve edge case where missing baseline slice thickness caused coordinate drift
+[2026-11-21 11:23:37 +0530] feat: add radiologist review annotation tool for tumor boundary verification
