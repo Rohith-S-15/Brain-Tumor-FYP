@@ -3312,3 +3312,4 @@
 [2026-11-21 16:15:02 +0530] feat: package production Docker container with GPU acceleration and healthchecks
 [2026-11-21 17:58:52 +0530] docs: finalize system architecture guide and clinical API documentation
 [2026-11-21 19:50:18 +0530] docs: finalize system architecture guide and clinical API documentation
+[2026-11-21 20:04:52 +0530] refactor: streamline model inference pipeline to support on-demand single-patient inference
