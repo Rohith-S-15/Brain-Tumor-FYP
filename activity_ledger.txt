@@ -3321,3 +3321,4 @@
 [2026-11-22 12:20:12 +0530] feat: package production Docker container with GPU acceleration and healthchecks
 [2026-11-22 13:32:03 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
 [2026-11-22 14:06:04 +0530] perf: optimize 3D tensor inference latency using TensorRT conversion scripts
+[2026-11-22 15:15:39 +0530] test: validate zero-leakage patient-level stratification across 5-fold splits
