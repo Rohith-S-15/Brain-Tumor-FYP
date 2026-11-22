@@ -3319,3 +3319,4 @@
 [2026-11-22 10:52:57 +0530] test: benchmark automated segmentation HD95 against inter-observer variability
 [2026-11-22 11:32:35 +0530] refactor: decouple frontend WebGL volume renderer from Flask API endpoints
 [2026-11-22 12:20:12 +0530] feat: package production Docker container with GPU acceleration and healthchecks
+[2026-11-22 13:32:03 +0530] style: refine UI summary cards for mean Dice 0.827 and HD95 1.88mm metrics display
